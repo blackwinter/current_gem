@@ -2,7 +2,7 @@
 
 Gem::Specification.new do |s|
   s.name = %q{current_gem}
-  s.version = "0.0.1"
+  s.version = "0.0.2"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Jens Wille"]
@@ -11,7 +11,7 @@ Gem::Specification.new do |s|
   s.email = %q{jens.wille@uni-koeln.de}
   s.extra_rdoc_files = ["COPYING", "ChangeLog", "README"]
   s.files = ["lib/rubygems/commands/current_version_command.rb", "lib/rubygems/commands/current_path_command.rb", "lib/rubygems/commands/symlink_current_command.rb", "lib/rubygems_plugin.rb", "lib/current_gem/version.rb", "lib/current_gem.rb", "Rakefile", "COPYING", "ChangeLog", "README"]
-  s.homepage = %q{http://.rubyforge.org/current_gem}
+  s.homepage = %q{http://github.com/blackwinter/current_gem}
   s.rdoc_options = ["--main", "README", "--line-numbers", "--title", "current_gem Application documentation", "--inline-source", "--all", "--charset", "UTF-8"]
   s.require_paths = ["lib"]
   s.rubyforge_project = %q{}
