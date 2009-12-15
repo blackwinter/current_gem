@@ -1,0 +1,123 @@
+= current_gem - Maintain symlinks to the most recent versions of installed RubyGems.
+
+== VERSION
+
+This documentation refers to current_gem version 0.0.1
+
+
+== DESCRIPTION
+
+CurrentGem maintains symlinks to the most recent versions of your installed
+RubyGems by hooking into the install and update process. Thus, you have a
+stable path at your disposal that always points to the current version of
+a gem.
+
+This allows constructs like the following
+
+  PassengerRoot /usr/lib/ruby/gems/1.8/current/passenger
+
+instead of
+
+  PassengerRoot /usr/lib/ruby/gems/1.8/gems/passenger-2.2.7
+
+which is likely to break if you update passenger and perform a gem cleanup
+afterwards. If all you want is the most recent version and you don't care
+about specific version numbers, just go for it.
+
+=== Note
+
+On platforms where symbolic links are not supported, this plugin will
+simply do nothing at all. You can, however, use the symlink-independent
+parts of the API (e.g., CurrentGem#find or CurrentGem#version_for).
+
+
+== USAGE
+
+=== Querying
+
+In order to obtain a gem's current gemspec, call
+
+  require 'current_gem'
+  spec = CurrentGem[gem_name]
+
+or run
+
+  > gem spec <gem_name>
+
+in a command shell (this is a built-in command).
+
+You can get a gem's current path programmatically with
+
+  CurrentGem.path_for(gem_name)
+
+  # or
+  CurrentGem.path_for(spec)
+
+or by executing
+
+  > gem current_path <gem_name>
+
+  # resolve link target
+  > gem current_path <gem_name> -r
+
+on the command line.
+
+Finally, get the gem's current version with
+
+  CurrentGem.version_for(gem_name)
+
+  # or
+  CurrentGem.version_for(spec)
+
+or by running
+
+  > gem current_version <gem_name>
+
+=== Updating
+
+In case you want to update all symlinks at once (or you want to get started
+after installing CurrentGem for the first time) call
+
+  require 'current_gem'
+  CurrentGem.update_all
+
+or execute
+
+  > gem symlink_current
+
+on the command line (turn on the --verbose/-V switch to see the actual links).
+
+Whenever you install or update any gems the symlinks will be created/updated
+automatically. If you uninstall a gem the symlink will be pointed at the most
+recent remaining version or, if none are left, removed as well.
+
+
+== LINKS
+
+<b></b>
+Documentation:: <http://rdoc.info/projects/blackwinter/current_gem>
+Source code::   <http://github.com/blackwinter/current_gem>
+Gemcutter::     <http://gemcutter.org/gems/current_gem>
+
+
+== AUTHORS
+
+* Jens Wille <mailto:jens.wille@uni-koeln.de>
+
+
+== LICENSE AND COPYRIGHT
+
+Copyright (C) 2009 University of Cologne,
+Albertus-Magnus-Platz, 50932 Cologne, Germany
+
+current_gem is free software: you can redistribute it and/or modify it under
+the terms of the GNU General Public License as published by the Free Software
+Foundation, either version 3 of the License, or (at your option) any later
+version.
+
+current_gem is distributed in the hope that it will be useful, but WITHOUT
+ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
+FOR A PARTICULAR PURPOSE. See the GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License along with
+current_gem. If not, see <http://www.gnu.org/licenses/>.
