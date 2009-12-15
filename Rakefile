@@ -12,6 +12,7 @@ begin
     :gem => {
       :version      => CurrentGem::VERSION,
       :summary      => %q{Maintain symlinks to the most recent versions of installed RubyGems.},
+      :homepage     => 'http://github.com/blackwinter/current_gem',
       :files        => FileList['lib/**/*.rb'].to_a,
       :extra_files  => FileList['[A-Z]*'].to_a,
       :dependencies => %w[]
