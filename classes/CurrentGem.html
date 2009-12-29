@@ -1,0 +1,491 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>Module: CurrentGem</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <meta http-equiv="Content-Script-Type" content="text/javascript" />
+  <link rel="stylesheet" href=".././rdoc-style.css" type="text/css" media="screen" />
+  <script type="text/javascript">
+  // <![CDATA[
+
+  function popupCode( url ) {
+    window.open(url, "Code", "resizable=yes,scrollbars=yes,toolbar=no,status=no,height=150,width=400")
+  }
+
+  function toggleCode( id ) {
+    if ( document.getElementById )
+      elem = document.getElementById( id );
+    else if ( document.all )
+      elem = eval( "document.all." + id );
+    else
+      return false;
+
+    elemStyle = elem.style;
+    
+    if ( elemStyle.display != "block" ) {
+      elemStyle.display = "block"
+    } else {
+      elemStyle.display = "none"
+    }
+
+    return true;
+  }
+  
+  // Make codeblocks hidden by default
+  document.writeln( "<style type=\"text/css\">div.method-source-code { display: none }</style>" )
+  
+  // ]]>
+  </script>
+
+</head>
+<body>
+
+
+
+    <div id="classHeader">
+        <table class="header-table">
+        <tr class="top-aligned-row">
+          <td><strong>Module</strong></td>
+          <td class="class-name-in-header">CurrentGem</td>
+        </tr>
+        <tr class="top-aligned-row">
+            <td><strong>In:</strong></td>
+            <td>
+                <a href="../files/lib/current_gem_rb.html">
+                lib/current_gem.rb
+                </a>
+        <br />
+                <a href="../files/lib/current_gem/version_rb.html">
+                lib/current_gem/version.rb
+                </a>
+        <br />
+            </td>
+        </tr>
+
+        </table>
+    </div>
+  <!-- banner header -->
+
+  <div id="bodyContent">
+
+
+
+  <div id="contextContent">
+
+
+
+   </div>
+
+    <div id="method-list">
+      <h3 class="section-bar">Methods</h3>
+
+      <div class="name-list">
+      <a href="#M000002">[]</a>&nbsp;&nbsp;
+      <a href="#M000012">base_path_for</a>&nbsp;&nbsp;
+      <a href="#M000007">can_symlink?</a>&nbsp;&nbsp;
+      <a href="#M000013">current_path_for</a>&nbsp;&nbsp;
+      <a href="#M000001">find</a>&nbsp;&nbsp;
+      <a href="#M000008">find_by_installer</a>&nbsp;&nbsp;
+      <a href="#M000010">find_by_name</a>&nbsp;&nbsp;
+      <a href="#M000009">find_by_spec</a>&nbsp;&nbsp;
+      <a href="#M000003">path_for</a>&nbsp;&nbsp;
+      <a href="#M000011">symlink</a>&nbsp;&nbsp;
+      <a href="#M000005">update</a>&nbsp;&nbsp;
+      <a href="#M000006">update_all</a>&nbsp;&nbsp;
+      <a href="#M000004">version_for</a>&nbsp;&nbsp;
+      </div>
+    </div>
+
+  </div>
+
+
+    <!-- if includes -->
+
+    <div id="section">
+
+    <div id="class-list">
+      <h3 class="section-bar">Classes and Modules</h3>
+
+      Module <a href="CurrentGem/Version.html" class="link">CurrentGem::Version</a><br />
+
+    </div>
+
+    <div id="constants-list">
+      <h3 class="section-bar">Constants</h3>
+
+      <div class="name-list">
+        <table summary="Constants">
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">FU</td>
+          <td>=</td>
+          <td class="context-item-value">ENV['DRY_RUN'] ? FileUtils::DryRun : FileUtils</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">VERSION</td>
+          <td>=</td>
+          <td class="context-item-value">Version.to_s</td>
+        </tr>
+        </table>
+      </div>
+    </div>
+
+
+
+      
+
+
+    <!-- if method_list -->
+    <div id="methods">
+      <h3 class="section-bar">Public Instance methods</h3>
+
+      <div id="method-M000002" class="method-detail">
+        <a name="M000002"></a>
+
+        <div class="method-heading">
+          <span class="method-name">[]</span><span class="method-args">(arg)</span>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Alias for <a href="CurrentGem.html#M000001">find</a>
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000007" class="method-detail">
+        <a name="M000007"></a>
+
+        <div class="method-heading">
+          <a href="#M000007" class="method-signature">
+          <span class="method-name">can_symlink?</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000007-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000007-source">
+<pre>
+    <span class="ruby-comment cmt"># File lib/current_gem.rb, line 80</span>
+80:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">can_symlink?</span>
+81:     <span class="ruby-keyword kw">if</span> <span class="ruby-constant">Gem</span>.<span class="ruby-identifier">win_platform?</span>
+82:       <span class="ruby-identifier">warn</span> <span class="ruby-value str">'WARNING:  Unable to use symlinks on Windows, skipping...'</span>
+83:       <span class="ruby-keyword kw">return</span> <span class="ruby-keyword kw">false</span>
+84:     <span class="ruby-keyword kw">end</span>
+85: 
+86:     <span class="ruby-keyword kw">true</span>
+87:   <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M000001" class="method-detail">
+        <a name="M000001"></a>
+
+        <div class="method-heading">
+          <a href="#M000001" class="method-signature">
+          <span class="method-name">find</span><span class="method-args">(arg)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000001-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000001-source">
+<pre>
+    <span class="ruby-comment cmt"># File lib/current_gem.rb, line 40</span>
+40:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">find</span>(<span class="ruby-identifier">arg</span>)
+41:     <span class="ruby-keyword kw">case</span> <span class="ruby-identifier">arg</span>
+42:       <span class="ruby-keyword kw">when</span> <span class="ruby-constant">Gem</span><span class="ruby-operator">::</span><span class="ruby-constant">Installer</span>, <span class="ruby-constant">Gem</span><span class="ruby-operator">::</span><span class="ruby-constant">Uninstaller</span>
+43:         <span class="ruby-identifier">find_by_installer</span>(<span class="ruby-identifier">arg</span>)
+44:       <span class="ruby-keyword kw">when</span> <span class="ruby-constant">Gem</span><span class="ruby-operator">::</span><span class="ruby-constant">Specification</span>
+45:         <span class="ruby-identifier">find_by_spec</span>(<span class="ruby-identifier">arg</span>)
+46:       <span class="ruby-keyword kw">else</span>
+47:         <span class="ruby-identifier">find_by_name</span>(<span class="ruby-identifier">arg</span>)
+48:     <span class="ruby-keyword kw">end</span>
+49:   <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M000003" class="method-detail">
+        <a name="M000003"></a>
+
+        <div class="method-heading">
+          <a href="#M000003" class="method-signature">
+          <span class="method-name">path_for</span><span class="method-args">(arg)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000003-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000003-source">
+<pre>
+    <span class="ruby-comment cmt"># File lib/current_gem.rb, line 53</span>
+53:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">path_for</span>(<span class="ruby-identifier">arg</span>)
+54:     <span class="ruby-keyword kw">return</span> <span class="ruby-keyword kw">unless</span> <span class="ruby-identifier">can_symlink?</span>
+55: 
+56:     <span class="ruby-identifier">spec</span> = <span class="ruby-identifier">find</span>(<span class="ruby-identifier">arg</span>)
+57:     <span class="ruby-identifier">current_path_for</span>(<span class="ruby-identifier">spec</span>) <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">spec</span>
+58:   <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M000005" class="method-detail">
+        <a name="M000005"></a>
+
+        <div class="method-heading">
+          <a href="#M000005" class="method-signature">
+          <span class="method-name">update</span><span class="method-args">(inst_or_uninst)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000005-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000005-source">
+<pre>
+    <span class="ruby-comment cmt"># File lib/current_gem.rb, line 65</span>
+65:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">update</span>(<span class="ruby-identifier">inst_or_uninst</span>)
+66:     <span class="ruby-keyword kw">return</span> <span class="ruby-keyword kw">unless</span> <span class="ruby-identifier">can_symlink?</span>
+67: 
+68:     <span class="ruby-identifier">symlink</span>(<span class="ruby-identifier">find</span>(<span class="ruby-identifier">inst_or_uninst</span>))
+69:   <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M000006" class="method-detail">
+        <a name="M000006"></a>
+
+        <div class="method-heading">
+          <a href="#M000006" class="method-signature">
+          <span class="method-name">update_all</span><span class="method-args">(gem_dir = Gem.dir)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000006-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000006-source">
+<pre>
+    <span class="ruby-comment cmt"># File lib/current_gem.rb, line 71</span>
+71:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">update_all</span>(<span class="ruby-identifier">gem_dir</span> = <span class="ruby-constant">Gem</span>.<span class="ruby-identifier">dir</span>)
+72:     <span class="ruby-keyword kw">return</span> <span class="ruby-keyword kw">unless</span> <span class="ruby-identifier">can_symlink?</span>
+73: 
+74:     <span class="ruby-identifier">path</span> = <span class="ruby-identifier">base_path_for</span>(<span class="ruby-identifier">gem_dir</span>)
+75:     <span class="ruby-constant">FU</span>.<span class="ruby-identifier">rm_r</span>(<span class="ruby-identifier">path</span>) <span class="ruby-keyword kw">if</span> <span class="ruby-constant">File</span>.<span class="ruby-identifier">directory?</span>(<span class="ruby-identifier">path</span>)
+76: 
+77:     <span class="ruby-constant">Gem</span>.<span class="ruby-identifier">source_index</span>.<span class="ruby-identifier">latest_specs</span>.<span class="ruby-identifier">each</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">spec</span><span class="ruby-operator">|</span> <span class="ruby-identifier">symlink</span>(<span class="ruby-identifier">spec</span>, <span class="ruby-identifier">path</span>) }
+78:   <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M000004" class="method-detail">
+        <a name="M000004"></a>
+
+        <div class="method-heading">
+          <a href="#M000004" class="method-signature">
+          <span class="method-name">version_for</span><span class="method-args">(arg)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000004-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000004-source">
+<pre>
+    <span class="ruby-comment cmt"># File lib/current_gem.rb, line 60</span>
+60:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">version_for</span>(<span class="ruby-identifier">arg</span>)
+61:     <span class="ruby-identifier">spec</span> = <span class="ruby-identifier">find</span>(<span class="ruby-identifier">arg</span>)
+62:     <span class="ruby-identifier">spec</span>.<span class="ruby-identifier">version</span> <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">spec</span>
+63:   <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <h3 class="section-bar">Private Instance methods</h3>
+
+      <div id="method-M000012" class="method-detail">
+        <a name="M000012"></a>
+
+        <div class="method-heading">
+          <a href="#M000012" class="method-signature">
+          <span class="method-name">base_path_for</span><span class="method-args">(gem_dir)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000012-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000012-source">
+<pre>
+     <span class="ruby-comment cmt"># File lib/current_gem.rb, line 127</span>
+127:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">base_path_for</span>(<span class="ruby-identifier">gem_dir</span>)
+128:     <span class="ruby-identifier">gem_dir</span> = <span class="ruby-identifier">gem_dir</span>.<span class="ruby-identifier">installation_path</span> <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">gem_dir</span>.<span class="ruby-identifier">is_a?</span>(<span class="ruby-constant">Gem</span><span class="ruby-operator">::</span><span class="ruby-constant">Specification</span>)
+129:     <span class="ruby-constant">File</span>.<span class="ruby-identifier">join</span>(<span class="ruby-identifier">gem_dir</span>, <span class="ruby-value str">'current'</span>)
+130:   <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M000013" class="method-detail">
+        <a name="M000013"></a>
+
+        <div class="method-heading">
+          <a href="#M000013" class="method-signature">
+          <span class="method-name">current_path_for</span><span class="method-args">(spec, path = base_path_for(spec))</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000013-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000013-source">
+<pre>
+     <span class="ruby-comment cmt"># File lib/current_gem.rb, line 132</span>
+132:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">current_path_for</span>(<span class="ruby-identifier">spec</span>, <span class="ruby-identifier">path</span> = <span class="ruby-identifier">base_path_for</span>(<span class="ruby-identifier">spec</span>))
+133:     <span class="ruby-constant">File</span>.<span class="ruby-identifier">join</span>(<span class="ruby-identifier">path</span>, <span class="ruby-identifier">spec</span>.<span class="ruby-identifier">name</span>)
+134:   <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M000008" class="method-detail">
+        <a name="M000008"></a>
+
+        <div class="method-heading">
+          <a href="#M000008" class="method-signature">
+          <span class="method-name">find_by_installer</span><span class="method-args">(inst)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000008-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000008-source">
+<pre>
+     <span class="ruby-comment cmt"># File lib/current_gem.rb, line 93</span>
+ 93:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">find_by_installer</span>(<span class="ruby-identifier">inst</span>)
+ 94:     <span class="ruby-identifier">spec</span> = <span class="ruby-identifier">inst</span>.<span class="ruby-identifier">spec</span>
+ 95:     <span class="ruby-identifier">ver</span>  = <span class="ruby-node">&quot;#{inst.is_a?(Gem::Installer) ? '&gt;' : '!='} #{spec.version}&quot;</span>
+ 96: 
+ 97:     <span class="ruby-identifier">curr</span> = <span class="ruby-identifier">find_by_spec</span>(<span class="ruby-identifier">spec</span>, <span class="ruby-identifier">ver</span>) <span class="ruby-operator">||</span> <span class="ruby-identifier">spec</span>
+ 98:     <span class="ruby-identifier">curr</span>.<span class="ruby-identifier">loaded_from</span> <span class="ruby-operator">||=</span> <span class="ruby-constant">File</span>.<span class="ruby-identifier">join</span>(<span class="ruby-identifier">inst</span>.<span class="ruby-identifier">gem_home</span>, <span class="ruby-value str">'specifications'</span>, <span class="ruby-identifier">curr</span>.<span class="ruby-identifier">spec_name</span>)
+ 99: 
+100:     <span class="ruby-identifier">curr</span>
+101:   <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M000010" class="method-detail">
+        <a name="M000010"></a>
+
+        <div class="method-heading">
+          <a href="#M000010" class="method-signature">
+          <span class="method-name">find_by_name</span><span class="method-args">(name, ver = Gem::Requirement.default)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000010-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000010-source">
+<pre>
+     <span class="ruby-comment cmt"># File lib/current_gem.rb, line 107</span>
+107:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">find_by_name</span>(<span class="ruby-identifier">name</span>, <span class="ruby-identifier">ver</span> = <span class="ruby-constant">Gem</span><span class="ruby-operator">::</span><span class="ruby-constant">Requirement</span>.<span class="ruby-identifier">default</span>)
+108:     <span class="ruby-constant">Gem</span>.<span class="ruby-identifier">source_index</span>.<span class="ruby-identifier">find_name</span>(<span class="ruby-identifier">name</span>.<span class="ruby-identifier">to_s</span>, <span class="ruby-identifier">ver</span>).<span class="ruby-identifier">reject</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">spec</span><span class="ruby-operator">|</span>
+109:       <span class="ruby-identifier">spec</span>.<span class="ruby-identifier">version</span>.<span class="ruby-identifier">prerelease?</span>
+110:     }.<span class="ruby-identifier">last</span>
+111:   <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M000009" class="method-detail">
+        <a name="M000009"></a>
+
+        <div class="method-heading">
+          <a href="#M000009" class="method-signature">
+          <span class="method-name">find_by_spec</span><span class="method-args">(spec, ver = Gem::Requirement.default)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000009-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000009-source">
+<pre>
+     <span class="ruby-comment cmt"># File lib/current_gem.rb, line 103</span>
+103:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">find_by_spec</span>(<span class="ruby-identifier">spec</span>, <span class="ruby-identifier">ver</span> = <span class="ruby-constant">Gem</span><span class="ruby-operator">::</span><span class="ruby-constant">Requirement</span>.<span class="ruby-identifier">default</span>)
+104:     <span class="ruby-identifier">find_by_name</span>(<span class="ruby-identifier">spec</span>.<span class="ruby-identifier">name</span>, <span class="ruby-identifier">ver</span>)
+105:   <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M000011" class="method-detail">
+        <a name="M000011"></a>
+
+        <div class="method-heading">
+          <a href="#M000011" class="method-signature">
+          <span class="method-name">symlink</span><span class="method-args">(spec, path = base_path_for(spec))</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000011-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000011-source">
+<pre>
+     <span class="ruby-comment cmt"># File lib/current_gem.rb, line 113</span>
+113:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">symlink</span>(<span class="ruby-identifier">spec</span>, <span class="ruby-identifier">path</span> = <span class="ruby-identifier">base_path_for</span>(<span class="ruby-identifier">spec</span>))
+114:     <span class="ruby-keyword kw">return</span> <span class="ruby-keyword kw">unless</span> <span class="ruby-identifier">can_symlink?</span>
+115:     <span class="ruby-keyword kw">return</span> <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">spec</span>.<span class="ruby-identifier">version</span>.<span class="ruby-identifier">prerelease?</span>
+116: 
+117:     <span class="ruby-constant">FU</span>.<span class="ruby-identifier">mkdir_p</span>(<span class="ruby-identifier">path</span>) <span class="ruby-keyword kw">unless</span> <span class="ruby-constant">File</span>.<span class="ruby-identifier">exists?</span>(<span class="ruby-identifier">path</span>)
+118:     <span class="ruby-identifier">raise</span> <span class="ruby-constant">Gem</span><span class="ruby-operator">::</span><span class="ruby-constant">FilePermissionError</span>, <span class="ruby-identifier">path</span> <span class="ruby-keyword kw">unless</span> <span class="ruby-constant">File</span>.<span class="ruby-identifier">writable?</span>(<span class="ruby-identifier">path</span>) <span class="ruby-operator">||</span> <span class="ruby-constant">ENV</span>[<span class="ruby-value str">'DRY_RUN'</span>]
+119: 
+120:     <span class="ruby-identifier">src</span> = <span class="ruby-identifier">spec</span>.<span class="ruby-identifier">full_gem_path</span>
+121:     <span class="ruby-identifier">dst</span> = <span class="ruby-identifier">current_path_for</span>(<span class="ruby-identifier">spec</span>, <span class="ruby-identifier">path</span>)
+122: 
+123:     <span class="ruby-constant">FU</span>.<span class="ruby-identifier">rm</span>(<span class="ruby-identifier">dst</span>) <span class="ruby-keyword kw">if</span> <span class="ruby-constant">File</span>.<span class="ruby-identifier">exists?</span>(<span class="ruby-identifier">dst</span>) <span class="ruby-operator">||</span> <span class="ruby-constant">File</span>.<span class="ruby-identifier">symlink?</span>(<span class="ruby-identifier">dst</span>)
+124:     <span class="ruby-constant">FU</span>.<span class="ruby-identifier">symlink</span>(<span class="ruby-identifier">src</span>, <span class="ruby-identifier">dst</span>, <span class="ruby-identifier">:verbose</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-constant">Gem</span>.<span class="ruby-identifier">configuration</span>.<span class="ruby-identifier">really_verbose</span>) <span class="ruby-keyword kw">if</span> <span class="ruby-constant">File</span>.<span class="ruby-identifier">exists?</span>(<span class="ruby-identifier">src</span>)
+125:   <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+
+    </div>
+
+
+  </div>
+
+
+<div id="validator-badges">
+  <p><small><a href="http://validator.w3.org/check/referer">[Validate]</a></small></p>
+</div>
+
+</body>
+</html>

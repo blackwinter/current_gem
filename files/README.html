@@ -1,0 +1,267 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>File: README</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <meta http-equiv="Content-Script-Type" content="text/javascript" />
+  <link rel="stylesheet" href=".././rdoc-style.css" type="text/css" media="screen" />
+  <script type="text/javascript">
+  // <![CDATA[
+
+  function popupCode( url ) {
+    window.open(url, "Code", "resizable=yes,scrollbars=yes,toolbar=no,status=no,height=150,width=400")
+  }
+
+  function toggleCode( id ) {
+    if ( document.getElementById )
+      elem = document.getElementById( id );
+    else if ( document.all )
+      elem = eval( "document.all." + id );
+    else
+      return false;
+
+    elemStyle = elem.style;
+    
+    if ( elemStyle.display != "block" ) {
+      elemStyle.display = "block"
+    } else {
+      elemStyle.display = "none"
+    }
+
+    return true;
+  }
+  
+  // Make codeblocks hidden by default
+  document.writeln( "<style type=\"text/css\">div.method-source-code { display: none }</style>" )
+  
+  // ]]>
+  </script>
+
+</head>
+<body>
+
+
+
+  <div id="fileHeader">
+    <h1>README</h1>
+    <table class="header-table">
+    <tr class="top-aligned-row">
+      <td><strong>Path:</strong></td>
+      <td>README
+      </td>
+    </tr>
+    <tr class="top-aligned-row">
+      <td><strong>Last Update:</strong></td>
+      <td>Fri Dec 18 14:00:01 +0100 2009</td>
+    </tr>
+    </table>
+  </div>
+  <!-- banner header -->
+
+  <div id="bodyContent">
+
+
+
+  <div id="contextContent">
+
+    <div id="description">
+      <h1>current_gem - Maintain symlinks to the most recent versions of installed RubyGems.</h1>
+<h2>VERSION</h2>
+<p>
+This documentation refers to current_gem version 0.0.1
+</p>
+<h2>DESCRIPTION</h2>
+<p>
+<a href="../classes/CurrentGem.html">CurrentGem</a> maintains symlinks to
+the most recent versions of your installed RubyGems by hooking into the
+install and update process. Thus, you have a stable path at your disposal
+that always points to the current version of a gem.
+</p>
+<p>
+This allows constructs like the following
+</p>
+<pre>
+  PassengerRoot /usr/lib/ruby/gems/1.8/current/passenger
+</pre>
+<p>
+instead of
+</p>
+<pre>
+  PassengerRoot /usr/lib/ruby/gems/1.8/gems/passenger-2.2.7
+</pre>
+<p>
+which is likely to break if you update passenger and perform a gem cleanup
+afterwards. If all you want is the most recent version and you don&#8216;t
+care about specific version numbers, just go for it.
+</p>
+<h3>Note</h3>
+<p>
+On platforms where symbolic links are not supported, this plugin will
+simply do nothing at all. You can, however, use the symlink-independent
+parts of the API (e.g., <a
+href="../classes/CurrentGem.html#M000001">CurrentGem#find</a> or <a
+href="../classes/CurrentGem.html#M000004">CurrentGem#version_for</a>).
+</p>
+<h2>USAGE</h2>
+<h3>Querying</h3>
+<p>
+In order to obtain a gem&#8216;s current gemspec, call
+</p>
+<pre>
+  require 'current_gem'
+  spec = CurrentGem[gem_name]
+</pre>
+<p>
+or run
+</p>
+<pre>
+  &gt; gem spec &lt;gem_name&gt;
+</pre>
+<p>
+in a command shell (this is a built-in command).
+</p>
+<p>
+You can get a gem&#8216;s current path programmatically with
+</p>
+<pre>
+  CurrentGem.path_for(gem_name)
+
+  # or
+  CurrentGem.path_for(spec)
+</pre>
+<p>
+or by executing
+</p>
+<pre>
+  &gt; gem current_path &lt;gem_name&gt;
+
+  # resolve link target
+  &gt; gem current_path &lt;gem_name&gt; -r
+</pre>
+<p>
+on the command line.
+</p>
+<p>
+Finally, get the gem&#8216;s current version with
+</p>
+<pre>
+  CurrentGem.version_for(gem_name)
+
+  # or
+  CurrentGem.version_for(spec)
+</pre>
+<p>
+or by running
+</p>
+<pre>
+  &gt; gem current_version &lt;gem_name&gt;
+</pre>
+<h3>Updating</h3>
+<p>
+In case you want to update all symlinks at once (or you want to get started
+after installing <a href="../classes/CurrentGem.html">CurrentGem</a> for
+the first time) call
+</p>
+<pre>
+  require 'current_gem'
+  CurrentGem.update_all
+</pre>
+<p>
+or execute
+</p>
+<pre>
+  &gt; gem symlink_current
+</pre>
+<p>
+on the command line (turn on the &#8212;verbose/-V switch to see the actual
+links).
+</p>
+<p>
+Whenever you install or update any gems the symlinks will be
+created/updated automatically. If you uninstall a gem the symlink will be
+pointed at the most recent remaining version or, if none are left, removed
+as well.
+</p>
+<h2>LINKS</h2>
+<p>
+</p>
+<table>
+<tr><td valign="top">Documentation:</td><td>&lt;<a
+href="http://rdoc.info/projects/blackwinter/current_gem">rdoc.info/projects/blackwinter/current_gem</a>&gt;
+
+</td></tr>
+<tr><td valign="top">Source code:</td><td>&lt;<a
+href="http://github.com/blackwinter/current_gem">github.com/blackwinter/current_gem</a>&gt;
+
+</td></tr>
+<tr><td valign="top">Gemcutter:</td><td>&lt;<a
+href="http://gemcutter.org/gems/current_gem">gemcutter.org/gems/current_gem</a>&gt;
+
+</td></tr>
+</table>
+<h2>AUTHORS</h2>
+<ul>
+<li>Jens Wille &lt;<a
+href="mailto:jens.wille@uni-koeln.de">jens.wille@uni-koeln.de</a>&gt;
+
+</li>
+</ul>
+<h2>LICENSE AND COPYRIGHT</h2>
+<p>
+Copyright (C) 2009 University of Cologne, Albertus-Magnus-Platz, 50932
+Cologne, Germany
+</p>
+<p>
+current_gem is free software: you can redistribute it and/or modify it
+under the terms of the GNU General Public License as published by the Free
+Software Foundation, either version 3 of the License, or (at your option)
+any later version.
+</p>
+<p>
+current_gem is distributed in the hope that it will be useful, but WITHOUT
+ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or
+FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public License for
+more details.
+</p>
+<p>
+You should have received a copy of the GNU General Public License along
+with current_gem. If not, see &lt;<a
+href="http://www.gnu.org/licenses">www.gnu.org/licenses</a>/&gt;.
+</p>
+
+    </div>
+
+
+   </div>
+
+
+  </div>
+
+
+    <!-- if includes -->
+
+    <div id="section">
+
+
+
+
+
+      
+
+
+    <!-- if method_list -->
+
+
+  </div>
+
+
+<div id="validator-badges">
+  <p><small><a href="http://validator.w3.org/check/referer">[Validate]</a></small></p>
+</div>
+
+</body>
+</html>
