@@ -51,9 +51,7 @@ module CurrentGem
   alias_method :[], :find
 
   def path_for(arg)
-    return unless can_symlink?
-
-    spec = find(arg)
+    spec = find(arg) if can_symlink?
     current_path_for(spec) if spec
   end
 
@@ -63,9 +61,7 @@ module CurrentGem
   end
 
   def update(inst_or_uninst)
-    return unless can_symlink?
-
-    symlink(find(inst_or_uninst))
+    symlink(find(inst_or_uninst)) if can_symlink?
   end
 
   def update_all(gem_dir = Gem.dir)
@@ -74,16 +70,16 @@ module CurrentGem
     path = base_path_for(gem_dir)
     FU.rm_r(path) if File.directory?(path)
 
-    Gem.source_index.latest_specs.each { |spec| symlink(spec, path) }
+    Gem::Specification.latest_specs.each { |spec| symlink(spec, path) }
   end
 
   def can_symlink?
     if Gem.win_platform?
       warn 'WARNING:  Unable to use symlinks on Windows, skipping...'
-      return false
+      false
+    else
+      true
     end
-
-    true
   end
 
   ##############################################################################
@@ -105,14 +101,13 @@ module CurrentGem
   end
 
   def find_by_name(name, ver = Gem::Requirement.default)
-    Gem.source_index.find_name(name.to_s, ver).reject { |spec|
+    Gem::Specification.find_all_by_name(name.to_s, ver).reject { |spec|
       spec.version.prerelease?
     }.last
   end
 
   def symlink(spec, path = base_path_for(spec))
-    return unless can_symlink?
-    return if spec.version.prerelease?
+    return unless can_symlink? && !spec.version.prerelease?
 
     FU.mkdir_p(path) unless File.exists?(path)
     raise Gem::FilePermissionError, path unless File.writable?(path) || ENV['DRY_RUN']
@@ -125,7 +120,7 @@ module CurrentGem
   end
 
   def base_path_for(gem_dir)
-    gem_dir = gem_dir.installation_path if gem_dir.is_a?(Gem::Specification)
+    gem_dir = gem_dir.base_dir if gem_dir.is_a?(Gem::Specification)
     File.join(gem_dir, 'current')
   end
 
