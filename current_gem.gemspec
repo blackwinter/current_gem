@@ -2,19 +2,19 @@
 
 Gem::Specification.new do |s|
   s.name = %q{current_gem}
-  s.version = "0.0.3"
+  s.version = "0.0.4"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
-  s.authors = ["Jens Wille"]
-  s.date = %q{2011-04-29}
+  s.authors = [%q{Jens Wille}]
+  s.date = %q{2011-05-05}
   s.description = %q{Maintain symlinks to the most recent versions of installed RubyGems.}
   s.email = %q{jens.wille@uni-koeln.de}
-  s.extra_rdoc_files = ["README", "COPYING", "ChangeLog"]
-  s.files = ["lib/current_gem.rb", "lib/current_gem/version.rb", "lib/rubygems/commands/current_path_command.rb", "lib/rubygems/commands/symlink_current_command.rb", "lib/rubygems/commands/current_version_command.rb", "lib/rubygems_plugin.rb", "README", "ChangeLog", "Rakefile", "COPYING"]
+  s.extra_rdoc_files = [%q{README}, %q{COPYING}, %q{ChangeLog}]
+  s.files = [%q{lib/current_gem.rb}, %q{lib/current_gem/version.rb}, %q{lib/rubygems/commands/current_path_command.rb}, %q{lib/rubygems/commands/symlink_current_command.rb}, %q{lib/rubygems/commands/current_version_command.rb}, %q{lib/rubygems_plugin.rb}, %q{README}, %q{ChangeLog}, %q{Rakefile}, %q{COPYING}]
   s.homepage = %q{http://github.com/blackwinter/current_gem}
-  s.rdoc_options = ["--charset", "UTF-8", "--title", "current_gem Application documentation (v0.0.3)", "--main", "README", "--line-numbers", "--all"]
-  s.require_paths = ["lib"]
-  s.rubygems_version = %q{1.7.2}
+  s.rdoc_options = [%q{--line-numbers}, %q{--main}, %q{README}, %q{--all}, %q{--charset}, %q{UTF-8}, %q{--title}, %q{current_gem Application documentation (v0.0.4)}]
+  s.require_paths = [%q{lib}]
+  s.rubygems_version = %q{1.8.0}
   s.summary = %q{Maintain symlinks to the most recent versions of installed RubyGems.}
 
   if s.respond_to? :specification_version then
