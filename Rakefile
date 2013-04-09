@@ -9,7 +9,7 @@ begin
       :version  => CurrentGem::VERSION,
       :summary  => %q{Maintain symlinks to the most recent versions of installed RubyGems.},
       :author   => %q{Jens Wille},
-      :email    => %q{jens.wille@uni-koeln.de},
+      :email    => %q{jens.wille@gmail.com},
       :homepage => :blackwinter,
 
       :required_rubygems_version => '>= 1.8.0'

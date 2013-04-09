@@ -8,7 +8,7 @@ Gem::Specification.new do |s|
   s.authors = [%q{Jens Wille}]
   s.date = %q{2011-05-05}
   s.description = %q{Maintain symlinks to the most recent versions of installed RubyGems.}
-  s.email = %q{jens.wille@uni-koeln.de}
+  s.email = %q{jens.wille@gmail.com}
   s.extra_rdoc_files = [%q{README}, %q{COPYING}, %q{ChangeLog}]
   s.files = [%q{lib/current_gem.rb}, %q{lib/current_gem/version.rb}, %q{lib/rubygems/commands/current_path_command.rb}, %q{lib/rubygems/commands/symlink_current_command.rb}, %q{lib/rubygems/commands/current_version_command.rb}, %q{lib/rubygems_plugin.rb}, %q{README}, %q{ChangeLog}, %q{Rakefile}, %q{COPYING}]
   s.homepage = %q{http://github.com/blackwinter/current_gem}
