@@ -1,1 +1,10 @@
-Fri, 18 Dec 2009 15:54:02 +0100
+Tue, 09 Apr 2013 12:12:13 +0200
+README	Tue, 09 Apr 2013 12:10:22 +0200
+COPYING	Tue, 09 Apr 2013 11:33:05 +0200
+ChangeLog	Tue, 09 Apr 2013 11:33:05 +0200
+lib/current_gem.rb	Tue, 09 Apr 2013 12:11:11 +0200
+lib/rubygems_plugin.rb	Tue, 09 Apr 2013 11:33:05 +0200
+lib/current_gem/version.rb	Tue, 09 Apr 2013 11:33:05 +0200
+lib/rubygems/commands/current_path_command.rb	Tue, 09 Apr 2013 12:11:37 +0200
+lib/rubygems/commands/current_version_command.rb	Tue, 09 Apr 2013 12:11:44 +0200
+lib/rubygems/commands/symlink_current_command.rb	Tue, 09 Apr 2013 12:11:49 +0200
