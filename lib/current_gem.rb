@@ -7,7 +7,7 @@
 #                         Albertus-Magnus-Platz,                              #
 #                         50923 Cologne, Germany                              #
 #                                                                             #
-# Copyright (C) 2013 Jens Wille                                               #
+# Copyright (C) 2013-2014 Jens Wille                                          #
 #                                                                             #
 # Authors:                                                                    #
 #     Jens Wille <jens.wille@gmail.com>                                       #
@@ -41,12 +41,9 @@ module CurrentGem
 
   def find(arg)
     case arg
-      when Gem::Installer, Gem::Uninstaller
-        find_by_installer(arg)
-      when Gem::Specification
-        find_by_spec(arg)
-      else
-        find_by_name(arg)
+      when Gem::Installer, Gem::Uninstaller then find_by_installer(arg)
+      when Gem::Specification               then find_by_spec(arg)
+      else                                       find_by_name(arg)
     end
   end
 
@@ -89,21 +86,20 @@ module CurrentGem
   ##############################################################################
 
   def find_by_installer(inst)
-    spec = inst.spec
-    ver  = "#{inst.is_a?(Gem::Installer) ? '>' : '!='} #{spec.version}"
+    spec, op = inst.spec, inst.is_a?(Gem::Installer) ? '>' : '!='
 
-    curr = find_by_spec(spec, ver) || spec
+    curr = find_by_spec(spec, "#{op} #{spec.version}") || spec
     curr.loaded_from ||= File.join(inst.gem_home, 'specifications', curr.spec_name)
 
     curr
   end
 
-  def find_by_spec(spec, ver = Gem::Requirement.default)
-    find_by_name(spec.name, ver)
+  def find_by_spec(spec, req = Gem::Requirement.default)
+    find_by_name(spec.name, req)
   end
 
-  def find_by_name(name, ver = Gem::Requirement.default)
-    Gem::Specification.find_all_by_name(name.to_s, ver).reject { |spec|
+  def find_by_name(name, req = Gem::Requirement.default)
+    Gem::Specification.find_all_by_name(name.to_s, req).reject { |spec|
       spec.version.prerelease?
     }.last
   end
@@ -111,19 +107,18 @@ module CurrentGem
   def symlink(spec, path = base_path_for(spec))
     return unless can_symlink? && !spec.version.prerelease?
 
-    FU.mkdir_p(path) unless File.exists?(path)
+    FU.mkdir_p(path) unless File.exist?(path)
     raise Gem::FilePermissionError, path unless File.writable?(path) || ENV['DRY_RUN']
 
     src = spec.full_gem_path
     dst = current_path_for(spec, path)
 
-    FU.rm(dst) if File.exists?(dst) || File.symlink?(dst)
-    FU.symlink(src, dst, :verbose => Gem.configuration.really_verbose) if File.exists?(src)
+    FU.rm(dst) if File.exist?(dst) || File.symlink?(dst)
+    FU.symlink(src, dst, :verbose => Gem.configuration.really_verbose) if File.exist?(src)
   end
 
-  def base_path_for(gem_dir)
-    gem_dir = gem_dir.base_dir if gem_dir.is_a?(Gem::Specification)
-    File.join(gem_dir, 'current')
+  def base_path_for(arg)
+    File.join(arg.is_a?(Gem::Specification) ? arg.base_dir : arg, 'current')
   end
 
   def current_path_for(spec, path = base_path_for(spec))
