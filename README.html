@@ -2,119 +2,106 @@
 
 <html>
 <head>
-<meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
+<meta charset="UTF-8">
 
-<title>README - current_gem Application documentation (v0.0.6)</title>
+<title>README - current_gem Application documentation (v0.1.0)</title>
 
-<link type="text/css" media="screen" href="./rdoc.css" rel="stylesheet">
+<link href="./fonts.css" rel="stylesheet">
+<link href="./rdoc.css" rel="stylesheet">
 
 <script type="text/javascript">
   var rdoc_rel_prefix = "./";
 </script>
 
-<script type="text/javascript" charset="utf-8" src="./js/jquery.js"></script>
-<script type="text/javascript" charset="utf-8" src="./js/navigation.js"></script>
-<script type="text/javascript" charset="utf-8" src="./js/search_index.js"></script>
-<script type="text/javascript" charset="utf-8" src="./js/search.js"></script>
-<script type="text/javascript" charset="utf-8" src="./js/searcher.js"></script>
-<script type="text/javascript" charset="utf-8" src="./js/darkfish.js"></script>
+<script src="./js/jquery.js"></script>
+<script src="./js/navigation.js"></script>
+<script src="./js/search_index.js"></script>
+<script src="./js/search.js"></script>
+<script src="./js/searcher.js"></script>
+<script src="./js/darkfish.js"></script>
 
 
-<body class="file">
-<nav id="metadata">
-  <nav id="home-section" class="section">
-  <h3 class="section-header">
-    <a href="./index.html">Home</a>
+<body id="top" role="document" class="file">
+<nav role="navigation">
+  <div id="project-navigation">
+    <div id="home-section" role="region" title="Quick navigation" class="nav-section">
+  <h2>
+    <a href="./index.html" rel="home">Home</a>
+  </h2>
+
+  <div id="table-of-contents-navigation">
+    <a href="./table_of_contents.html#pages">Pages</a>
     <a href="./table_of_contents.html#classes">Classes</a>
     <a href="./table_of_contents.html#methods">Methods</a>
-  </h3>
-</nav>
+  </div>
+</div>
 
-
-  <nav id="search-section" class="section project-section" class="initially-hidden">
+    <div id="search-section" role="search" class="project-section initially-hidden">
   <form action="#" method="get" accept-charset="utf-8">
-    <h3 class="section-header">
-      <input type="text" name="search" placeholder="Search" id="search-field"
+    <div id="search-field-wrapper">
+      <input id="search-field" role="combobox" aria-label="Search"
+             aria-autocomplete="list" aria-controls="search-results"
+             type="text" name="search" placeholder="Search" spellcheck="false"
              title="Type to search, Up and Down to navigate, Enter to load">
-    </h3>
+    </div>
+
+    <ul id="search-results" aria-label="Search Results"
+        aria-busy="false" aria-expanded="false"
+        aria-atomic="false" class="initially-hidden"></ul>
   </form>
+</div>
 
-  <ul id="search-results" class="initially-hidden"></ul>
-</nav>
-
+  </div>
 
   
-<div id="table-of-contents">
-  <nav class="section">
-    <h3 class="section-header">Table of Contents</h3>
-    <ul>
-      <li><a href="#label-current_gem+-+Maintain+symlinks+to+the+most+recent+versions+of+installed+RubyGems.">current_gem - Maintain symlinks to the most recent versions of installed RubyGems.</a>
-      <li><a href="#label-VERSION">VERSION</a>
-      <li><a href="#label-DESCRIPTION">DESCRIPTION</a>
-      <li><a href="#label-Note">Note</a>
-      <li><a href="#label-USAGE">USAGE</a>
-      <li><a href="#label-Querying">Querying</a>
-      <li><a href="#label-Updating">Updating</a>
-      <li><a href="#label-LINKS">LINKS</a>
-      <li><a href="#label-AUTHORS">AUTHORS</a>
-      <li><a href="#label-LICENSE+AND+COPYRIGHT">LICENSE AND COPYRIGHT</a>
-    </ul>
-  </nav>
+<div class="nav-section">
+  <h3>Table of Contents</h3>
+
+  <ul class="link-list" role="directory">
+    <li><a href="#label-current_gem+-+Maintain+symlinks+to+the+most+recent+versions+of+installed+Ruby+Gems.">current_gem - Maintain symlinks to the most recent versions of installed Ruby Gems.</a>
+    <li><a href="#label-VERSION">VERSION</a>
+    <li><a href="#label-DESCRIPTION">DESCRIPTION</a>
+    <li><a href="#label-Note">Note</a>
+    <li><a href="#label-USAGE">USAGE</a>
+    <li><a href="#label-Querying">Querying</a>
+    <li><a href="#label-Updating">Updating</a>
+    <li><a href="#label-LINKS">LINKS</a>
+    <li><a href="#label-AUTHORS">AUTHORS</a>
+    <li><a href="#label-LICENSE+AND+COPYRIGHT">LICENSE AND COPYRIGHT</a>
+  </ul>
 </div>
 
 
   <div id="project-metadata">
-    <nav id="fileindex-section" class="section project-section">
-  <h3 class="section-header">Pages</h3>
-
-  <ul>
-  
-    <li class="file"><a href="./COPYING.html">COPYING</a>
-  
-    <li class="file"><a href="./ChangeLog.html">ChangeLog</a>
-  
-    <li class="file"><a href="./README.html">README</a>
-  
-  </ul>
-</nav>
-
-    <nav id="classindex-section" class="section project-section">
-  <h3 class="section-header">Class and Module Index</h3>
+    <div id="fileindex-section" class="nav-section">
+  <h3>Pages</h3>
 
   <ul class="link-list">
   
-    <li><a href="./CurrentGem.html">CurrentGem</a>
+    <li><a href="./COPYING.html">COPYING</a>
   
-    <li><a href="./CurrentGem/Version.html">CurrentGem::Version</a>
+    <li><a href="./ChangeLog.html">ChangeLog</a>
   
-    <li><a href="./Gem.html">Gem</a>
-  
-    <li><a href="./Gem/Commands.html">Gem::Commands</a>
-  
-    <li><a href="./Gem/Commands/CurrentPathCommand.html">Gem::Commands::CurrentPathCommand</a>
-  
-    <li><a href="./Gem/Commands/CurrentVersionCommand.html">Gem::Commands::CurrentVersionCommand</a>
-  
-    <li><a href="./Gem/Commands/SymlinkCurrentCommand.html">Gem::Commands::SymlinkCurrentCommand</a>
+    <li><a href="./README.html">README</a>
   
   </ul>
-</nav>
+</div>
 
   </div>
 </nav>
 
-<div id="documentation" class="description">
-  
-<h1 id="label-current_gem+-+Maintain+symlinks+to+the+most+recent+versions+of+installed+RubyGems.">current_gem - Maintain symlinks to the most recent versions of installed RubyGems.<span><a href="#label-current_gem+-+Maintain+symlinks+to+the+most+recent+versions+of+installed+RubyGems.">&para;</a> <a href="#documentation">&uarr;</a></span></h1>
+<main role="main" aria-label="Page README">
+
+<h1 id="label-current_gem+-+Maintain+symlinks+to+the+most+recent+versions+of+installed+Ruby+Gems.">current_gem - Maintain symlinks to the most recent versions of installed Ruby Gems.<span><a href="#label-current_gem+-+Maintain+symlinks+to+the+most+recent+versions+of+installed+Ruby+Gems.">&para;</a> <a href="#documentation">&uarr;</a></span></h1>
 
 <h2 id="label-VERSION">VERSION<span><a href="#label-VERSION">&para;</a> <a href="#documentation">&uarr;</a></span></h2>
 
-<p>This documentation refers to current_gem version 0.0.6</p>
+<p>This documentation refers to current_gem version 0.1.0</p>
 
 <h2 id="label-DESCRIPTION">DESCRIPTION<span><a href="#label-DESCRIPTION">&para;</a> <a href="#documentation">&uarr;</a></span></h2>
 
 <p><a href="CurrentGem.html">CurrentGem</a> maintains symlinks to the most
-recent versions of your installed RubyGems by hooking into the install and
+recent versions of your installed Ruby Gems by hooking into the install and
 update process. Thus, you have a stable path at your disposal that always
 points to the current version of a gem.</p>
 
@@ -152,60 +139,60 @@ href="CurrentGem.html#method-i-version_for">CurrentGem#version_for</a>).</p>
 
 <pre>&gt; gem spec &lt;gem_name&gt;</pre>
 
-<p>in a command shell (this is a built-in command).</p>
+<p>on the command line (this is a built-in command).</p>
 
 <p>You can get a gem&#39;s current path programmatically with</p>
 
-<pre>CurrentGem.path_for(gem_name)
+<pre class="ruby"><span class="ruby-identifier">require</span> <span class="ruby-string">&#39;current_gem&#39;</span>
 
-# or
-CurrentGem.path_for(spec)</pre>
+<span class="ruby-constant">CurrentGem</span>.<span class="ruby-identifier">path_for</span>(<span class="ruby-identifier">gem_name</span>)
+<span class="ruby-constant">CurrentGem</span>.<span class="ruby-identifier">path_for</span>(<span class="ruby-identifier">spec</span>)
+</pre>
 
-<p>or by executing</p>
+<p>or by running</p>
 
-<pre>&gt; gem current_path &lt;gem_name&gt;
+<pre>&gt; gem current_path &lt;gem_name&gt;</pre>
 
-# resolve link target
-&gt; gem current_path &lt;gem_name&gt; -r</pre>
-
-<p>on the command line.</p>
+<p>on the command line (turn on the <code>--resolve</code>/<code>-r</code>
+switch to resolve the link target).</p>
 
 <p>Finally, get the gem&#39;s current version with</p>
 
-<pre>CurrentGem.version_for(gem_name)
+<pre class="ruby"><span class="ruby-identifier">require</span> <span class="ruby-string">&#39;current_gem&#39;</span>
 
-# or
-CurrentGem.version_for(spec)</pre>
+<span class="ruby-constant">CurrentGem</span>.<span class="ruby-identifier">version_for</span>(<span class="ruby-identifier">gem_name</span>)
+<span class="ruby-constant">CurrentGem</span>.<span class="ruby-identifier">version_for</span>(<span class="ruby-identifier">spec</span>)
+</pre>
 
 <p>or by running</p>
 
 <pre>&gt; gem current_version &lt;gem_name&gt;</pre>
 
+<p>on the command line.</p>
+
 <h3 id="label-Updating">Updating<span><a href="#label-Updating">&para;</a> <a href="#documentation">&uarr;</a></span></h3>
 
 <p>In case you want to update all symlinks at once (or you want to get started
 after installing <a href="CurrentGem.html">CurrentGem</a> for the first
-time) call</p>
+time), call</p>
 
 <pre class="ruby"><span class="ruby-identifier">require</span> <span class="ruby-string">&#39;current_gem&#39;</span>
 <span class="ruby-constant">CurrentGem</span>.<span class="ruby-identifier">update_all</span>
 </pre>
 
-<p>or execute</p>
+<p>or run</p>
 
 <pre>&gt; gem symlink_current</pre>
 
-<p>on the command line (turn on the –verbose/-V switch to see the actual
-links).</p>
+<p>on the command line (turn on the <code>--verbose</code>/<code>-V</code>
+switch to see the actual links).</p>
 
 <p>Whenever you install or update any gems the symlinks will be
-created/updated automatically. If you uninstall a gem the symlink will be
+created/updated automatically. If you uninstall a gem, the symlink will be
 pointed at the most recent remaining version or, if none are left, removed
 as well.</p>
 
 <h2 id="label-LINKS">LINKS<span><a href="#label-LINKS">&para;</a> <a href="#documentation">&uarr;</a></span></h2>
-
-<p></p>
 <dl class="rdoc-list note-list"><dt>Documentation
 <dd>
 <p><a
@@ -231,7 +218,7 @@ href="mailto:jens.wille@gmail.com">jens.wille@gmail.com</a>&gt;</p>
 <p>Copyright (C) 2009-2012 University of Cologne, Albertus-Magnus-Platz, 50923
 Cologne, Germany</p>
 
-<p>Copyright (C) 2013 Jens Wille</p>
+<p>Copyright (C) 2013-2014 Jens Wille</p>
 
 <p>current_gem is free software: you can redistribute it and/or modify it
 under the terms of the GNU Affero General Public License as published by
@@ -246,14 +233,13 @@ for more details.</p>
 <p>You should have received a copy of the GNU Affero General Public License
 along with current_gem. If not, see &lt;<a
 href="http://www.gnu.org/licenses">www.gnu.org/licenses</a>/&gt;.</p>
-
-</div>
-
+</main>
 
 
-<footer id="validator-badges">
-  <p><a href="http://validator.w3.org/check/referer">[Validate]</a>
-  <p>Generated by <a href="https://github.com/rdoc/rdoc">RDoc</a> 4.0.1.
-  <p>Generated with the <a href="http://deveiate.org/projects/Darkfish-Rdoc/">Darkfish Rdoc Generator</a> 3.
+
+<footer id="validator-badges" role="contentinfo">
+  <p><a href="http://validator.w3.org/check/referer">Validate</a>
+  <p>Generated by <a href="http://rdoc.rubyforge.org">RDoc</a> 4.1.2.
+  <p>Based on <a href="http://deveiate.org/projects/Darkfish-Rdoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
 </footer>
 

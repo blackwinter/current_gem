@@ -2,76 +2,76 @@
 
 <html>
 <head>
-<meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
+<meta charset="UTF-8">
 
-<title>class Gem::Commands::CurrentPathCommand - current_gem Application documentation (v0.0.6)</title>
+<title>class Gem::Commands::CurrentPathCommand - current_gem Application documentation (v0.1.0)</title>
 
-<link type="text/css" media="screen" href="../../rdoc.css" rel="stylesheet">
+<link href="../../fonts.css" rel="stylesheet">
+<link href="../../rdoc.css" rel="stylesheet">
 
 <script type="text/javascript">
   var rdoc_rel_prefix = "../../";
 </script>
 
-<script type="text/javascript" charset="utf-8" src="../../js/jquery.js"></script>
-<script type="text/javascript" charset="utf-8" src="../../js/navigation.js"></script>
-<script type="text/javascript" charset="utf-8" src="../../js/search_index.js"></script>
-<script type="text/javascript" charset="utf-8" src="../../js/search.js"></script>
-<script type="text/javascript" charset="utf-8" src="../../js/searcher.js"></script>
-<script type="text/javascript" charset="utf-8" src="../../js/darkfish.js"></script>
+<script src="../../js/jquery.js"></script>
+<script src="../../js/navigation.js"></script>
+<script src="../../js/search_index.js"></script>
+<script src="../../js/search.js"></script>
+<script src="../../js/searcher.js"></script>
+<script src="../../js/darkfish.js"></script>
 
 
-<body id="top" class="class">
-<nav id="metadata">
-  <nav id="home-section" class="section">
-  <h3 class="section-header">
-    <a href="../../index.html">Home</a>
+<body id="top" role="document" class="class">
+<nav role="navigation">
+  <div id="project-navigation">
+    <div id="home-section" role="region" title="Quick navigation" class="nav-section">
+  <h2>
+    <a href="../../index.html" rel="home">Home</a>
+  </h2>
+
+  <div id="table-of-contents-navigation">
+    <a href="../../table_of_contents.html#pages">Pages</a>
     <a href="../../table_of_contents.html#classes">Classes</a>
     <a href="../../table_of_contents.html#methods">Methods</a>
-  </h3>
-</nav>
+  </div>
+</div>
 
-
-  <nav id="search-section" class="section project-section" class="initially-hidden">
+    <div id="search-section" role="search" class="project-section initially-hidden">
   <form action="#" method="get" accept-charset="utf-8">
-    <h3 class="section-header">
-      <input type="text" name="search" placeholder="Search" id="search-field"
+    <div id="search-field-wrapper">
+      <input id="search-field" role="combobox" aria-label="Search"
+             aria-autocomplete="list" aria-controls="search-results"
+             type="text" name="search" placeholder="Search" spellcheck="false"
              title="Type to search, Up and Down to navigate, Enter to load">
-    </h3>
+    </div>
+
+    <ul id="search-results" aria-label="Search Results"
+        aria-busy="false" aria-expanded="false"
+        aria-atomic="false" class="initially-hidden"></ul>
   </form>
+</div>
 
-  <ul id="search-results" class="initially-hidden"></ul>
-</nav>
-
+  </div>
 
   
-
-  <div id="file-metadata">
-    <nav id="file-list-section" class="section">
-  <h3 class="section-header">Defined In</h3>
-  <ul>
-    <li>lib/rubygems/commands/current_path_command.rb
-  </ul>
-</nav>
-
-    
-  </div>
 
   <div id="class-metadata">
     
-    <nav id="parent-class-section" class="section">
-  <h3 class="section-header">Parent</h3>
+    <div id="parent-class-section" class="nav-section">
+  <h3>Parent</h3>
+
   
   <p class="link">Gem::Command
   
-</nav>
+</div>
 
     
     
     <!-- Method Quickref -->
-<nav id="method-list-section" class="section">
-  <h3 class="section-header">Methods</h3>
+<div id="method-list-section" class="nav-section">
+  <h3>Methods</h3>
 
-  <ul class="link-list">
+  <ul class="link-list" role="directory">
     
     <li class="calls-super" ><a href="#method-c-new">::new</a>
     
@@ -82,56 +82,19 @@
     <li ><a href="#method-i-usage">#usage</a>
     
   </ul>
-</nav>
-
-  </div>
-
-  <div id="project-metadata">
-    <nav id="fileindex-section" class="section project-section">
-  <h3 class="section-header">Pages</h3>
-
-  <ul>
-  
-    <li class="file"><a href="../../COPYING.html">COPYING</a>
-  
-    <li class="file"><a href="../../ChangeLog.html">ChangeLog</a>
-  
-    <li class="file"><a href="../../README.html">README</a>
-  
-  </ul>
-</nav>
-
-    <nav id="classindex-section" class="section project-section">
-  <h3 class="section-header">Class and Module Index</h3>
-
-  <ul class="link-list">
-  
-    <li><a href="../../CurrentGem.html">CurrentGem</a>
-  
-    <li><a href="../../CurrentGem/Version.html">CurrentGem::Version</a>
-  
-    <li><a href="../../Gem.html">Gem</a>
-  
-    <li><a href="../../Gem/Commands.html">Gem::Commands</a>
-  
-    <li><a href="../../Gem/Commands/CurrentPathCommand.html">Gem::Commands::CurrentPathCommand</a>
-  
-    <li><a href="../../Gem/Commands/CurrentVersionCommand.html">Gem::Commands::CurrentVersionCommand</a>
-  
-    <li><a href="../../Gem/Commands/SymlinkCurrentCommand.html">Gem::Commands::SymlinkCurrentCommand</a>
-  
-  </ul>
-</nav>
+</div>
 
   </div>
 </nav>
 
-<div id="documentation">
-  <h1 class="class">class Gem::Commands::CurrentPathCommand</h1>
+<main role="main" aria-labelledby="class-Gem::Commands::CurrentPathCommand">
+  <h1 id="class-Gem::Commands::CurrentPathCommand" class="class">
+    class Gem::Commands::CurrentPathCommand
+  </h1>
 
-  <div id="description" class="description">
+  <section class="description">
     
-  </div><!-- description -->
+  </section>
 
   
   
@@ -145,10 +108,11 @@
 
     
 
-    <!-- Methods -->
     
-     <section id="public-class-5Buntitled-5D-method-details" class="method-section section">
-      <h3 class="section-header">Public Class Methods</h3>
+     <section id="public-class-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Class Methods</h3>
+       </header>
 
     
       <div id="method-c-new" class="method-detail ">
@@ -178,26 +142,28 @@
             <pre><span class="ruby-comment"># File lib/rubygems/commands/current_path_command.rb, line 33</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">initialize</span>
   <span class="ruby-keyword">super</span> <span class="ruby-string">&#39;current_path&#39;</span>, <span class="ruby-string">&quot;Display the location of a gem&#39;s current symlink&quot;</span>,
-    <span class="ruby-value">:resolve</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-keyword">false</span>
+    <span class="ruby-identifier">resolve</span><span class="ruby-operator">:</span> <span class="ruby-keyword">false</span>
 
   <span class="ruby-identifier">add_option</span>(<span class="ruby-string">&#39;-r&#39;</span>, <span class="ruby-string">&#39;--resolve&#39;</span>, <span class="ruby-string">&#39;Display value of symbolic link&#39;</span>) { <span class="ruby-operator">|</span><span class="ruby-identifier">value</span>, <span class="ruby-identifier">options</span><span class="ruby-operator">|</span>
     <span class="ruby-identifier">options</span>[<span class="ruby-value">:resolve</span>] = <span class="ruby-keyword">true</span>
   }
 <span class="ruby-keyword">end</span></pre>
-          </div><!-- new-source -->
+          </div>
           
         </div>
 
         
 
         
-      </div><!-- new-method -->
+      </div>
 
     
-    </section><!-- public-class-method-details -->
+    </section>
   
-     <section id="public-instance-5Buntitled-5D-method-details" class="method-section section">
-      <h3 class="section-header">Public Instance Methods</h3>
+     <section id="public-instance-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Instance Methods</h3>
+       </header>
 
     
       <div id="method-i-arguments" class="method-detail ">
@@ -223,14 +189,14 @@
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">arguments</span>
   <span class="ruby-string">&#39;GEMNAME       name of gem to display&#39;</span>
 <span class="ruby-keyword">end</span></pre>
-          </div><!-- arguments-source -->
+          </div>
           
         </div>
 
         
 
         
-      </div><!-- arguments-method -->
+      </div>
 
     
       <div id="method-i-execute" class="method-detail ">
@@ -255,19 +221,19 @@
             <pre><span class="ruby-comment"># File lib/rubygems/commands/current_path_command.rb, line 50</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">execute</span>
   <span class="ruby-identifier">path</span> = <span class="ruby-constant">CurrentGem</span>.<span class="ruby-identifier">path_for</span>(<span class="ruby-identifier">get_one_gem_name</span>)
-  <span class="ruby-keyword">return</span> <span class="ruby-keyword">unless</span> <span class="ruby-identifier">path</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-constant">File</span>.<span class="ruby-identifier">exists?</span>(<span class="ruby-identifier">path</span>)
+  <span class="ruby-keyword">return</span> <span class="ruby-keyword">unless</span> <span class="ruby-identifier">path</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-constant">File</span>.<span class="ruby-identifier">exist?</span>(<span class="ruby-identifier">path</span>)
 
   <span class="ruby-identifier">path</span> = <span class="ruby-constant">File</span>.<span class="ruby-identifier">readlink</span>(<span class="ruby-identifier">path</span>) <span class="ruby-keyword">if</span> <span class="ruby-identifier">options</span>[<span class="ruby-value">:resolve</span>]
   <span class="ruby-identifier">say</span> <span class="ruby-identifier">path</span>
 <span class="ruby-keyword">end</span></pre>
-          </div><!-- execute-source -->
+          </div>
           
         </div>
 
         
 
         
-      </div><!-- execute-method -->
+      </div>
 
     
       <div id="method-i-usage" class="method-detail ">
@@ -293,26 +259,25 @@
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">usage</span>
   <span class="ruby-node">&quot;#{program_name} GEMNAME&quot;</span>
 <span class="ruby-keyword">end</span></pre>
-          </div><!-- usage-source -->
+          </div>
           
         </div>
 
         
 
         
-      </div><!-- usage-method -->
+      </div>
 
     
-    </section><!-- public-instance-method-details -->
+    </section>
   
-  </section><!-- 5Buntitled-5D -->
+  </section>
+</main>
 
-</div><!-- documentation -->
 
-
-<footer id="validator-badges">
-  <p><a href="http://validator.w3.org/check/referer">[Validate]</a>
-  <p>Generated by <a href="https://github.com/rdoc/rdoc">RDoc</a> 4.0.1.
-  <p>Generated with the <a href="http://deveiate.org/projects/Darkfish-Rdoc/">Darkfish Rdoc Generator</a> 3.
+<footer id="validator-badges" role="contentinfo">
+  <p><a href="http://validator.w3.org/check/referer">Validate</a>
+  <p>Generated by <a href="http://rdoc.rubyforge.org">RDoc</a> 4.1.2.
+  <p>Based on <a href="http://deveiate.org/projects/Darkfish-Rdoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
 </footer>
 

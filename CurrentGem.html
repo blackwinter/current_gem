@@ -2,60 +2,58 @@
 
 <html>
 <head>
-<meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
+<meta charset="UTF-8">
 
-<title>module CurrentGem - current_gem Application documentation (v0.0.6)</title>
+<title>module CurrentGem - current_gem Application documentation (v0.1.0)</title>
 
-<link type="text/css" media="screen" href="./rdoc.css" rel="stylesheet">
+<link href="./fonts.css" rel="stylesheet">
+<link href="./rdoc.css" rel="stylesheet">
 
 <script type="text/javascript">
   var rdoc_rel_prefix = "./";
 </script>
 
-<script type="text/javascript" charset="utf-8" src="./js/jquery.js"></script>
-<script type="text/javascript" charset="utf-8" src="./js/navigation.js"></script>
-<script type="text/javascript" charset="utf-8" src="./js/search_index.js"></script>
-<script type="text/javascript" charset="utf-8" src="./js/search.js"></script>
-<script type="text/javascript" charset="utf-8" src="./js/searcher.js"></script>
-<script type="text/javascript" charset="utf-8" src="./js/darkfish.js"></script>
+<script src="./js/jquery.js"></script>
+<script src="./js/navigation.js"></script>
+<script src="./js/search_index.js"></script>
+<script src="./js/search.js"></script>
+<script src="./js/searcher.js"></script>
+<script src="./js/darkfish.js"></script>
 
 
-<body id="top" class="module">
-<nav id="metadata">
-  <nav id="home-section" class="section">
-  <h3 class="section-header">
-    <a href="./index.html">Home</a>
+<body id="top" role="document" class="module">
+<nav role="navigation">
+  <div id="project-navigation">
+    <div id="home-section" role="region" title="Quick navigation" class="nav-section">
+  <h2>
+    <a href="./index.html" rel="home">Home</a>
+  </h2>
+
+  <div id="table-of-contents-navigation">
+    <a href="./table_of_contents.html#pages">Pages</a>
     <a href="./table_of_contents.html#classes">Classes</a>
     <a href="./table_of_contents.html#methods">Methods</a>
-  </h3>
-</nav>
+  </div>
+</div>
 
-
-  <nav id="search-section" class="section project-section" class="initially-hidden">
+    <div id="search-section" role="search" class="project-section initially-hidden">
   <form action="#" method="get" accept-charset="utf-8">
-    <h3 class="section-header">
-      <input type="text" name="search" placeholder="Search" id="search-field"
+    <div id="search-field-wrapper">
+      <input id="search-field" role="combobox" aria-label="Search"
+             aria-autocomplete="list" aria-controls="search-results"
+             type="text" name="search" placeholder="Search" spellcheck="false"
              title="Type to search, Up and Down to navigate, Enter to load">
-    </h3>
+    </div>
+
+    <ul id="search-results" aria-label="Search Results"
+        aria-busy="false" aria-expanded="false"
+        aria-atomic="false" class="initially-hidden"></ul>
   </form>
+</div>
 
-  <ul id="search-results" class="initially-hidden"></ul>
-</nav>
-
+  </div>
 
   
-
-  <div id="file-metadata">
-    <nav id="file-list-section" class="section">
-  <h3 class="section-header">Defined In</h3>
-  <ul>
-    <li>lib/current_gem.rb
-    <li>lib/current_gem/version.rb
-  </ul>
-</nav>
-
-    
-  </div>
 
   <div id="class-metadata">
     
@@ -63,10 +61,10 @@
     
     
     <!-- Method Quickref -->
-<nav id="method-list-section" class="section">
-  <h3 class="section-header">Methods</h3>
+<div id="method-list-section" class="nav-section">
+  <h3>Methods</h3>
 
-  <ul class="link-list">
+  <ul class="link-list" role="directory">
     
     <li ><a href="#method-i-5B-5D">#[]</a>
     
@@ -95,56 +93,19 @@
     <li ><a href="#method-i-version_for">#version_for</a>
     
   </ul>
-</nav>
-
-  </div>
-
-  <div id="project-metadata">
-    <nav id="fileindex-section" class="section project-section">
-  <h3 class="section-header">Pages</h3>
-
-  <ul>
-  
-    <li class="file"><a href="./COPYING.html">COPYING</a>
-  
-    <li class="file"><a href="./ChangeLog.html">ChangeLog</a>
-  
-    <li class="file"><a href="./README.html">README</a>
-  
-  </ul>
-</nav>
-
-    <nav id="classindex-section" class="section project-section">
-  <h3 class="section-header">Class and Module Index</h3>
-
-  <ul class="link-list">
-  
-    <li><a href="./CurrentGem.html">CurrentGem</a>
-  
-    <li><a href="./CurrentGem/Version.html">CurrentGem::Version</a>
-  
-    <li><a href="./Gem.html">Gem</a>
-  
-    <li><a href="./Gem/Commands.html">Gem::Commands</a>
-  
-    <li><a href="./Gem/Commands/CurrentPathCommand.html">Gem::Commands::CurrentPathCommand</a>
-  
-    <li><a href="./Gem/Commands/CurrentVersionCommand.html">Gem::Commands::CurrentVersionCommand</a>
-  
-    <li><a href="./Gem/Commands/SymlinkCurrentCommand.html">Gem::Commands::SymlinkCurrentCommand</a>
-  
-  </ul>
-</nav>
+</div>
 
   </div>
 </nav>
 
-<div id="documentation">
-  <h1 class="module">module CurrentGem</h1>
+<main role="main" aria-labelledby="module-CurrentGem">
+  <h1 id="module-CurrentGem" class="module">
+    module CurrentGem
+  </h1>
 
-  <div id="description" class="description">
+  <section class="description">
     
-  </div><!-- description -->
+  </section>
 
   
   
@@ -155,19 +116,30 @@
     
 
     
-    <!-- Constants -->
-    <section id="constants-list" class="section">
-      <h3 class="section-header">Constants</h3>
+    <section class="constants-list">
+      <header>
+        <h3>Constants</h3>
+      </header>
       <dl>
       
-        <dt id="FU">FU
+        <dt id="CURR_DIR">CURR_DIR
         
-        <dd class="description">
+        <dd>
+        
+      
+        <dt id="FileUtils">FileUtils
+        
+        <dd>
+        
+      
+        <dt id="SPEC_DIR">SPEC_DIR
+        
+        <dd>
         
       
         <dt id="VERSION">VERSION
         
-        <dd class="description">
+        <dd>
         
       
       </dl>
@@ -176,10 +148,11 @@
 
     
 
-    <!-- Methods -->
     
-     <section id="public-instance-5Buntitled-5D-method-details" class="method-section section">
-      <h3 class="section-header">Public Instance Methods</h3>
+     <section id="public-instance-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Instance Methods</h3>
+       </header>
 
     
       <div id="method-i-5B-5D" class="method-detail method-alias">
@@ -207,7 +180,7 @@
           Alias for: <a href="CurrentGem.html#method-i-find">find</a>
         </div>
         
-      </div><!-- 5B-5D-method -->
+      </div>
 
     
       <div id="method-i-can_symlink-3F" class="method-detail ">
@@ -238,14 +211,14 @@
     <span class="ruby-keyword">true</span>
   <span class="ruby-keyword">end</span>
 <span class="ruby-keyword">end</span></pre>
-          </div><!-- can_symlink-3F-source -->
+          </div>
           
         </div>
 
         
 
         
-      </div><!-- can_symlink-3F-method -->
+      </div>
 
     
       <div id="method-i-find" class="method-detail ">
@@ -267,18 +240,15 @@
 
           
           <div class="method-source-code" id="find-source">
-            <pre><span class="ruby-comment"># File lib/current_gem.rb, line 42</span>
+            <pre><span class="ruby-comment"># File lib/current_gem.rb, line 45</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">find</span>(<span class="ruby-identifier">arg</span>)
   <span class="ruby-keyword">case</span> <span class="ruby-identifier">arg</span>
-    <span class="ruby-keyword">when</span> <span class="ruby-constant">Gem</span><span class="ruby-operator">::</span><span class="ruby-constant">Installer</span>, <span class="ruby-constant">Gem</span><span class="ruby-operator">::</span><span class="ruby-constant">Uninstaller</span>
-      <span class="ruby-identifier">find_by_installer</span>(<span class="ruby-identifier">arg</span>)
-    <span class="ruby-keyword">when</span> <span class="ruby-constant">Gem</span><span class="ruby-operator">::</span><span class="ruby-constant">Specification</span>
-      <span class="ruby-identifier">find_by_spec</span>(<span class="ruby-identifier">arg</span>)
-    <span class="ruby-keyword">else</span>
-      <span class="ruby-identifier">find_by_name</span>(<span class="ruby-identifier">arg</span>)
+    <span class="ruby-keyword">when</span> <span class="ruby-constant">Gem</span><span class="ruby-operator">::</span><span class="ruby-constant">Installer</span>, <span class="ruby-constant">Gem</span><span class="ruby-operator">::</span><span class="ruby-constant">Uninstaller</span> <span class="ruby-keyword">then</span> <span class="ruby-identifier">find_by_installer</span>(<span class="ruby-identifier">arg</span>)
+    <span class="ruby-keyword">when</span> <span class="ruby-constant">Gem</span><span class="ruby-operator">::</span><span class="ruby-constant">Specification</span>               <span class="ruby-keyword">then</span> <span class="ruby-identifier">find_by_spec</span>(<span class="ruby-identifier">arg</span>)
+    <span class="ruby-keyword">else</span>                                       <span class="ruby-identifier">find_by_name</span>(<span class="ruby-identifier">arg</span>)
   <span class="ruby-keyword">end</span>
 <span class="ruby-keyword">end</span></pre>
-          </div><!-- find-source -->
+          </div>
           
         </div>
 
@@ -289,7 +259,7 @@
         
 
         
-      </div><!-- find-method -->
+      </div>
 
     
       <div id="method-i-path_for" class="method-detail ">
@@ -316,21 +286,21 @@
   <span class="ruby-identifier">spec</span> = <span class="ruby-identifier">find</span>(<span class="ruby-identifier">arg</span>) <span class="ruby-keyword">if</span> <span class="ruby-identifier">can_symlink?</span>
   <span class="ruby-identifier">current_path_for</span>(<span class="ruby-identifier">spec</span>) <span class="ruby-keyword">if</span> <span class="ruby-identifier">spec</span>
 <span class="ruby-keyword">end</span></pre>
-          </div><!-- path_for-source -->
+          </div>
           
         </div>
 
         
 
         
-      </div><!-- path_for-method -->
+      </div>
 
     
       <div id="method-i-update" class="method-detail ">
         
         <div class="method-heading">
           <span class="method-name">update</span><span
-            class="method-args">(inst_or_uninst)</span>
+            class="method-args">(installer)</span>
           
           <span class="method-click-advice">click to toggle source</span>
           
@@ -346,17 +316,17 @@
           
           <div class="method-source-code" id="update-source">
             <pre><span class="ruby-comment"># File lib/current_gem.rb, line 65</span>
-<span class="ruby-keyword">def</span> <span class="ruby-identifier">update</span>(<span class="ruby-identifier">inst_or_uninst</span>)
-  <span class="ruby-identifier">symlink</span>(<span class="ruby-identifier">find</span>(<span class="ruby-identifier">inst_or_uninst</span>)) <span class="ruby-keyword">if</span> <span class="ruby-identifier">can_symlink?</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">update</span>(<span class="ruby-identifier">installer</span>)
+  <span class="ruby-identifier">symlink</span>(<span class="ruby-identifier">find</span>(<span class="ruby-identifier">installer</span>)) <span class="ruby-keyword">if</span> <span class="ruby-identifier">can_symlink?</span>
 <span class="ruby-keyword">end</span></pre>
-          </div><!-- update-source -->
+          </div>
           
         </div>
 
         
 
         
-      </div><!-- update-method -->
+      </div>
 
     
       <div id="method-i-update_all" class="method-detail ">
@@ -383,18 +353,18 @@
   <span class="ruby-keyword">return</span> <span class="ruby-keyword">unless</span> <span class="ruby-identifier">can_symlink?</span>
 
   <span class="ruby-identifier">path</span> = <span class="ruby-identifier">base_path_for</span>(<span class="ruby-identifier">gem_dir</span>)
-  <span class="ruby-constant">FU</span>.<span class="ruby-identifier">rm_r</span>(<span class="ruby-identifier">path</span>) <span class="ruby-keyword">if</span> <span class="ruby-constant">File</span>.<span class="ruby-identifier">directory?</span>(<span class="ruby-identifier">path</span>)
+  <span class="ruby-constant">FileUtils</span>.<span class="ruby-identifier">rm_r</span>(<span class="ruby-identifier">path</span>) <span class="ruby-keyword">if</span> <span class="ruby-constant">File</span>.<span class="ruby-identifier">directory?</span>(<span class="ruby-identifier">path</span>)
 
   <span class="ruby-constant">Gem</span><span class="ruby-operator">::</span><span class="ruby-constant">Specification</span>.<span class="ruby-identifier">latest_specs</span>.<span class="ruby-identifier">each</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">spec</span><span class="ruby-operator">|</span> <span class="ruby-identifier">symlink</span>(<span class="ruby-identifier">spec</span>, <span class="ruby-identifier">path</span>) }
 <span class="ruby-keyword">end</span></pre>
-          </div><!-- update_all-source -->
+          </div>
           
         </div>
 
         
 
         
-      </div><!-- update_all-method -->
+      </div>
 
     
       <div id="method-i-version_for" class="method-detail ">
@@ -421,27 +391,29 @@
   <span class="ruby-identifier">spec</span> = <span class="ruby-identifier">find</span>(<span class="ruby-identifier">arg</span>)
   <span class="ruby-identifier">spec</span>.<span class="ruby-identifier">version</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">spec</span>
 <span class="ruby-keyword">end</span></pre>
-          </div><!-- version_for-source -->
+          </div>
           
         </div>
 
         
 
         
-      </div><!-- version_for-method -->
+      </div>
 
     
-    </section><!-- public-instance-method-details -->
+    </section>
   
-     <section id="private-instance-5Buntitled-5D-method-details" class="method-section section">
-      <h3 class="section-header">Private Instance Methods</h3>
+     <section id="private-instance-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Private Instance Methods</h3>
+       </header>
 
     
       <div id="method-i-base_path_for" class="method-detail ">
         
         <div class="method-heading">
           <span class="method-name">base_path_for</span><span
-            class="method-args">(gem_dir)</span>
+            class="method-args">(arg)</span>
           
           <span class="method-click-advice">click to toggle source</span>
           
@@ -456,19 +428,18 @@
 
           
           <div class="method-source-code" id="base_path_for-source">
-            <pre><span class="ruby-comment"># File lib/current_gem.rb, line 124</span>
-<span class="ruby-keyword">def</span> <span class="ruby-identifier">base_path_for</span>(<span class="ruby-identifier">gem_dir</span>)
-  <span class="ruby-identifier">gem_dir</span> = <span class="ruby-identifier">gem_dir</span>.<span class="ruby-identifier">base_dir</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">gem_dir</span>.<span class="ruby-identifier">is_a?</span>(<span class="ruby-constant">Gem</span><span class="ruby-operator">::</span><span class="ruby-constant">Specification</span>)
-  <span class="ruby-constant">File</span>.<span class="ruby-identifier">join</span>(<span class="ruby-identifier">gem_dir</span>, <span class="ruby-string">&#39;current&#39;</span>)
+            <pre><span class="ruby-comment"># File lib/current_gem.rb, line 128</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">base_path_for</span>(<span class="ruby-identifier">arg</span>)
+  <span class="ruby-constant">File</span>.<span class="ruby-identifier">join</span>(<span class="ruby-identifier">arg</span>.<span class="ruby-identifier">is_a?</span>(<span class="ruby-constant">Gem</span><span class="ruby-operator">::</span><span class="ruby-constant">Specification</span>) <span class="ruby-operator">?</span> <span class="ruby-identifier">arg</span>.<span class="ruby-identifier">base_dir</span> <span class="ruby-operator">:</span> <span class="ruby-identifier">arg</span>, <span class="ruby-constant">CURR_DIR</span>)
 <span class="ruby-keyword">end</span></pre>
-          </div><!-- base_path_for-source -->
+          </div>
           
         </div>
 
         
 
         
-      </div><!-- base_path_for-method -->
+      </div>
 
     
       <div id="method-i-current_path_for" class="method-detail ">
@@ -490,25 +461,25 @@
 
           
           <div class="method-source-code" id="current_path_for-source">
-            <pre><span class="ruby-comment"># File lib/current_gem.rb, line 129</span>
+            <pre><span class="ruby-comment"># File lib/current_gem.rb, line 132</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">current_path_for</span>(<span class="ruby-identifier">spec</span>, <span class="ruby-identifier">path</span> = <span class="ruby-identifier">base_path_for</span>(<span class="ruby-identifier">spec</span>))
   <span class="ruby-constant">File</span>.<span class="ruby-identifier">join</span>(<span class="ruby-identifier">path</span>, <span class="ruby-identifier">spec</span>.<span class="ruby-identifier">name</span>)
 <span class="ruby-keyword">end</span></pre>
-          </div><!-- current_path_for-source -->
+          </div>
           
         </div>
 
         
 
         
-      </div><!-- current_path_for-method -->
+      </div>
 
     
       <div id="method-i-find_by_installer" class="method-detail ">
         
         <div class="method-heading">
           <span class="method-name">find_by_installer</span><span
-            class="method-args">(inst)</span>
+            class="method-args">(installer)</span>
           
           <span class="method-click-advice">click to toggle source</span>
           
@@ -523,31 +494,30 @@
 
           
           <div class="method-source-code" id="find_by_installer-source">
-            <pre><span class="ruby-comment"># File lib/current_gem.rb, line 91</span>
-<span class="ruby-keyword">def</span> <span class="ruby-identifier">find_by_installer</span>(<span class="ruby-identifier">inst</span>)
-  <span class="ruby-identifier">spec</span> = <span class="ruby-identifier">inst</span>.<span class="ruby-identifier">spec</span>
-  <span class="ruby-identifier">ver</span>  = <span class="ruby-node">&quot;#{inst.is_a?(Gem::Installer) ? &#39;&gt;&#39; : &#39;!=&#39;} #{spec.version}&quot;</span>
+            <pre><span class="ruby-comment"># File lib/current_gem.rb, line 89</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">find_by_installer</span>(<span class="ruby-identifier">installer</span>)
+  <span class="ruby-identifier">spec</span>, <span class="ruby-identifier">op</span> = <span class="ruby-identifier">installer</span>.<span class="ruby-identifier">spec</span>, <span class="ruby-identifier">installer</span>.<span class="ruby-identifier">is_a?</span>(<span class="ruby-constant">Gem</span><span class="ruby-operator">::</span><span class="ruby-constant">Installer</span>) <span class="ruby-operator">?</span> <span class="ruby-string">&#39;&gt;&#39;</span> <span class="ruby-operator">:</span> <span class="ruby-string">&#39;!=&#39;</span>
 
-  <span class="ruby-identifier">curr</span> = <span class="ruby-identifier">find_by_spec</span>(<span class="ruby-identifier">spec</span>, <span class="ruby-identifier">ver</span>) <span class="ruby-operator">||</span> <span class="ruby-identifier">spec</span>
-  <span class="ruby-identifier">curr</span>.<span class="ruby-identifier">loaded_from</span> <span class="ruby-operator">||=</span> <span class="ruby-constant">File</span>.<span class="ruby-identifier">join</span>(<span class="ruby-identifier">inst</span>.<span class="ruby-identifier">gem_home</span>, <span class="ruby-string">&#39;specifications&#39;</span>, <span class="ruby-identifier">curr</span>.<span class="ruby-identifier">spec_name</span>)
+  <span class="ruby-identifier">curr</span> = <span class="ruby-identifier">find_by_spec</span>(<span class="ruby-identifier">spec</span>, <span class="ruby-node">&quot;#{op} #{spec.version}&quot;</span>) <span class="ruby-operator">||</span> <span class="ruby-identifier">spec</span>
+  <span class="ruby-identifier">curr</span>.<span class="ruby-identifier">loaded_from</span> <span class="ruby-operator">||=</span> <span class="ruby-constant">File</span>.<span class="ruby-identifier">join</span>(<span class="ruby-identifier">installer</span>.<span class="ruby-identifier">gem_home</span>, <span class="ruby-constant">SPEC_DIR</span>, <span class="ruby-identifier">curr</span>.<span class="ruby-identifier">spec_name</span>)
 
   <span class="ruby-identifier">curr</span>
 <span class="ruby-keyword">end</span></pre>
-          </div><!-- find_by_installer-source -->
+          </div>
           
         </div>
 
         
 
         
-      </div><!-- find_by_installer-method -->
+      </div>
 
     
       <div id="method-i-find_by_name" class="method-detail ">
         
         <div class="method-heading">
           <span class="method-name">find_by_name</span><span
-            class="method-args">(name, ver = Gem::Requirement.default)</span>
+            class="method-args">(name, req = nil)</span>
           
           <span class="method-click-advice">click to toggle source</span>
           
@@ -562,27 +532,29 @@
 
           
           <div class="method-source-code" id="find_by_name-source">
-            <pre><span class="ruby-comment"># File lib/current_gem.rb, line 105</span>
-<span class="ruby-keyword">def</span> <span class="ruby-identifier">find_by_name</span>(<span class="ruby-identifier">name</span>, <span class="ruby-identifier">ver</span> = <span class="ruby-constant">Gem</span><span class="ruby-operator">::</span><span class="ruby-constant">Requirement</span>.<span class="ruby-identifier">default</span>)
-  <span class="ruby-constant">Gem</span><span class="ruby-operator">::</span><span class="ruby-constant">Specification</span>.<span class="ruby-identifier">find_all_by_name</span>(<span class="ruby-identifier">name</span>.<span class="ruby-identifier">to_s</span>, <span class="ruby-identifier">ver</span>).<span class="ruby-identifier">reject</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">spec</span><span class="ruby-operator">|</span>
+            <pre><span class="ruby-comment"># File lib/current_gem.rb, line 102</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">find_by_name</span>(<span class="ruby-identifier">name</span>, <span class="ruby-identifier">req</span> = <span class="ruby-keyword">nil</span>)
+  <span class="ruby-identifier">req</span> <span class="ruby-operator">||=</span> <span class="ruby-constant">Gem</span><span class="ruby-operator">::</span><span class="ruby-constant">Requirement</span>.<span class="ruby-identifier">default</span>
+
+  <span class="ruby-constant">Gem</span><span class="ruby-operator">::</span><span class="ruby-constant">Specification</span>.<span class="ruby-identifier">find_all_by_name</span>(<span class="ruby-identifier">name</span>.<span class="ruby-identifier">to_s</span>, <span class="ruby-identifier">req</span>).<span class="ruby-identifier">reject</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">spec</span><span class="ruby-operator">|</span>
     <span class="ruby-identifier">spec</span>.<span class="ruby-identifier">version</span>.<span class="ruby-identifier">prerelease?</span>
   }.<span class="ruby-identifier">last</span>
 <span class="ruby-keyword">end</span></pre>
-          </div><!-- find_by_name-source -->
+          </div>
           
         </div>
 
         
 
         
-      </div><!-- find_by_name-method -->
+      </div>
 
     
       <div id="method-i-find_by_spec" class="method-detail ">
         
         <div class="method-heading">
           <span class="method-name">find_by_spec</span><span
-            class="method-args">(spec, ver = Gem::Requirement.default)</span>
+            class="method-args">(spec, req = nil)</span>
           
           <span class="method-click-advice">click to toggle source</span>
           
@@ -597,18 +569,18 @@
 
           
           <div class="method-source-code" id="find_by_spec-source">
-            <pre><span class="ruby-comment"># File lib/current_gem.rb, line 101</span>
-<span class="ruby-keyword">def</span> <span class="ruby-identifier">find_by_spec</span>(<span class="ruby-identifier">spec</span>, <span class="ruby-identifier">ver</span> = <span class="ruby-constant">Gem</span><span class="ruby-operator">::</span><span class="ruby-constant">Requirement</span>.<span class="ruby-identifier">default</span>)
-  <span class="ruby-identifier">find_by_name</span>(<span class="ruby-identifier">spec</span>.<span class="ruby-identifier">name</span>, <span class="ruby-identifier">ver</span>)
+            <pre><span class="ruby-comment"># File lib/current_gem.rb, line 98</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">find_by_spec</span>(<span class="ruby-identifier">spec</span>, <span class="ruby-identifier">req</span> = <span class="ruby-keyword">nil</span>)
+  <span class="ruby-identifier">find_by_name</span>(<span class="ruby-identifier">spec</span>.<span class="ruby-identifier">name</span>, <span class="ruby-identifier">req</span>)
 <span class="ruby-keyword">end</span></pre>
-          </div><!-- find_by_spec-source -->
+          </div>
           
         </div>
 
         
 
         
-      </div><!-- find_by_spec-method -->
+      </div>
 
     
       <div id="method-i-symlink" class="method-detail ">
@@ -630,39 +602,43 @@
 
           
           <div class="method-source-code" id="symlink-source">
-            <pre><span class="ruby-comment"># File lib/current_gem.rb, line 111</span>
+            <pre><span class="ruby-comment"># File lib/current_gem.rb, line 110</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">symlink</span>(<span class="ruby-identifier">spec</span>, <span class="ruby-identifier">path</span> = <span class="ruby-identifier">base_path_for</span>(<span class="ruby-identifier">spec</span>))
   <span class="ruby-keyword">return</span> <span class="ruby-keyword">unless</span> <span class="ruby-identifier">can_symlink?</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-operator">!</span><span class="ruby-identifier">spec</span>.<span class="ruby-identifier">version</span>.<span class="ruby-identifier">prerelease?</span>
 
-  <span class="ruby-constant">FU</span>.<span class="ruby-identifier">mkdir_p</span>(<span class="ruby-identifier">path</span>) <span class="ruby-keyword">unless</span> <span class="ruby-constant">File</span>.<span class="ruby-identifier">exists?</span>(<span class="ruby-identifier">path</span>)
-  <span class="ruby-identifier">raise</span> <span class="ruby-constant">Gem</span><span class="ruby-operator">::</span><span class="ruby-constant">FilePermissionError</span>, <span class="ruby-identifier">path</span> <span class="ruby-keyword">unless</span> <span class="ruby-constant">File</span>.<span class="ruby-identifier">writable?</span>(<span class="ruby-identifier">path</span>) <span class="ruby-operator">||</span> <span class="ruby-constant">ENV</span>[<span class="ruby-string">&#39;DRY_RUN&#39;</span>]
+  <span class="ruby-constant">FileUtils</span>.<span class="ruby-identifier">mkdir_p</span>(<span class="ruby-identifier">path</span>) <span class="ruby-keyword">unless</span> <span class="ruby-constant">File</span>.<span class="ruby-identifier">exist?</span>(<span class="ruby-identifier">path</span>)
 
-  <span class="ruby-identifier">src</span> = <span class="ruby-identifier">spec</span>.<span class="ruby-identifier">full_gem_path</span>
-  <span class="ruby-identifier">dst</span> = <span class="ruby-identifier">current_path_for</span>(<span class="ruby-identifier">spec</span>, <span class="ruby-identifier">path</span>)
+  <span class="ruby-keyword">unless</span> <span class="ruby-constant">File</span>.<span class="ruby-identifier">writable?</span>(<span class="ruby-identifier">path</span>) <span class="ruby-operator">||</span> <span class="ruby-constant">ENV</span>[<span class="ruby-string">&#39;DRY_RUN&#39;</span>]
+    <span class="ruby-identifier">raise</span> <span class="ruby-constant">Gem</span><span class="ruby-operator">::</span><span class="ruby-constant">FilePermissionError</span>, <span class="ruby-identifier">path</span>
+  <span class="ruby-keyword">end</span>
 
-  <span class="ruby-constant">FU</span>.<span class="ruby-identifier">rm</span>(<span class="ruby-identifier">dst</span>) <span class="ruby-keyword">if</span> <span class="ruby-constant">File</span>.<span class="ruby-identifier">exists?</span>(<span class="ruby-identifier">dst</span>) <span class="ruby-operator">||</span> <span class="ruby-constant">File</span>.<span class="ruby-identifier">symlink?</span>(<span class="ruby-identifier">dst</span>)
-  <span class="ruby-constant">FU</span>.<span class="ruby-identifier">symlink</span>(<span class="ruby-identifier">src</span>, <span class="ruby-identifier">dst</span>, <span class="ruby-value">:verbose</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-constant">Gem</span>.<span class="ruby-identifier">configuration</span>.<span class="ruby-identifier">really_verbose</span>) <span class="ruby-keyword">if</span> <span class="ruby-constant">File</span>.<span class="ruby-identifier">exists?</span>(<span class="ruby-identifier">src</span>)
+  <span class="ruby-keyword">if</span> <span class="ruby-constant">File</span>.<span class="ruby-identifier">exist?</span>(<span class="ruby-identifier">dst</span> = <span class="ruby-identifier">current_path_for</span>(<span class="ruby-identifier">spec</span>, <span class="ruby-identifier">path</span>)) <span class="ruby-operator">||</span> <span class="ruby-constant">File</span>.<span class="ruby-identifier">symlink?</span>(<span class="ruby-identifier">dst</span>)
+    <span class="ruby-constant">FileUtils</span>.<span class="ruby-identifier">rm</span>(<span class="ruby-identifier">dst</span>)
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-keyword">if</span> <span class="ruby-constant">File</span>.<span class="ruby-identifier">exist?</span>(<span class="ruby-identifier">src</span> = <span class="ruby-identifier">spec</span>.<span class="ruby-identifier">full_gem_path</span>)
+    <span class="ruby-constant">FileUtils</span>.<span class="ruby-identifier">symlink</span>(<span class="ruby-identifier">src</span>, <span class="ruby-identifier">dst</span>, <span class="ruby-identifier">verbose</span><span class="ruby-operator">:</span> <span class="ruby-constant">Gem</span>.<span class="ruby-identifier">configuration</span>.<span class="ruby-identifier">really_verbose</span>)
+  <span class="ruby-keyword">end</span>
 <span class="ruby-keyword">end</span></pre>
-          </div><!-- symlink-source -->
+          </div>
           
         </div>
 
         
 
         
-      </div><!-- symlink-method -->
+      </div>
 
     
-    </section><!-- private-instance-method-details -->
+    </section>
   
-  </section><!-- 5Buntitled-5D -->
+  </section>
+</main>
 
-</div><!-- documentation -->
 
-
-<footer id="validator-badges">
-  <p><a href="http://validator.w3.org/check/referer">[Validate]</a>
-  <p>Generated by <a href="https://github.com/rdoc/rdoc">RDoc</a> 4.0.1.
-  <p>Generated with the <a href="http://deveiate.org/projects/Darkfish-Rdoc/">Darkfish Rdoc Generator</a> 3.
+<footer id="validator-badges" role="contentinfo">
+  <p><a href="http://validator.w3.org/check/referer">Validate</a>
+  <p>Generated by <a href="http://rdoc.rubyforge.org">RDoc</a> 4.1.2.
+  <p>Based on <a href="http://deveiate.org/projects/Darkfish-Rdoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
 </footer>
 
