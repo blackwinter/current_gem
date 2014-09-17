@@ -1,7 +1,7 @@
 #--
 ###############################################################################
 #                                                                             #
-# current_gem -- Maintain symlinks to current RubyGems                        #
+# current_gem -- Maintain symlinks to current Ruby Gems                       #
 #                                                                             #
 # Copyright (C) 2009-2012 University of Cologne,                              #
 #                         Albertus-Magnus-Platz,                              #
@@ -37,7 +37,10 @@ module CurrentGem
 
   extend self
 
-  FU = ENV['DRY_RUN'] ? FileUtils::DryRun : FileUtils
+  SPEC_DIR = ENV['CURRENT_GEM_SPEC_DIR'] || 'specifications'
+  CURR_DIR = ENV['CURRENT_GEM_CURR_DIR'] || 'current'
+
+  FileUtils = ENV['DRY_RUN'] ? ::FileUtils::DryRun : ::FileUtils
 
   def find(arg)
     case arg
@@ -59,15 +62,15 @@ module CurrentGem
     spec.version if spec
   end
 
-  def update(inst_or_uninst)
-    symlink(find(inst_or_uninst)) if can_symlink?
+  def update(installer)
+    symlink(find(installer)) if can_symlink?
   end
 
   def update_all(gem_dir = Gem.dir)
     return unless can_symlink?
 
     path = base_path_for(gem_dir)
-    FU.rm_r(path) if File.directory?(path)
+    FileUtils.rm_r(path) if File.directory?(path)
 
     Gem::Specification.latest_specs.each { |spec| symlink(spec, path) }
   end
@@ -81,24 +84,24 @@ module CurrentGem
     end
   end
 
-  ##############################################################################
   private
-  ##############################################################################
 
-  def find_by_installer(inst)
-    spec, op = inst.spec, inst.is_a?(Gem::Installer) ? '>' : '!='
+  def find_by_installer(installer)
+    spec, op = installer.spec, installer.is_a?(Gem::Installer) ? '>' : '!='
 
     curr = find_by_spec(spec, "#{op} #{spec.version}") || spec
-    curr.loaded_from ||= File.join(inst.gem_home, 'specifications', curr.spec_name)
+    curr.loaded_from ||= File.join(installer.gem_home, SPEC_DIR, curr.spec_name)
 
     curr
   end
 
-  def find_by_spec(spec, req = Gem::Requirement.default)
+  def find_by_spec(spec, req = nil)
     find_by_name(spec.name, req)
   end
 
-  def find_by_name(name, req = Gem::Requirement.default)
+  def find_by_name(name, req = nil)
+    req ||= Gem::Requirement.default
+
     Gem::Specification.find_all_by_name(name.to_s, req).reject { |spec|
       spec.version.prerelease?
     }.last
@@ -107,18 +110,23 @@ module CurrentGem
   def symlink(spec, path = base_path_for(spec))
     return unless can_symlink? && !spec.version.prerelease?
 
-    FU.mkdir_p(path) unless File.exist?(path)
-    raise Gem::FilePermissionError, path unless File.writable?(path) || ENV['DRY_RUN']
+    FileUtils.mkdir_p(path) unless File.exist?(path)
 
-    src = spec.full_gem_path
-    dst = current_path_for(spec, path)
+    unless File.writable?(path) || ENV['DRY_RUN']
+      raise Gem::FilePermissionError, path
+    end
 
-    FU.rm(dst) if File.exist?(dst) || File.symlink?(dst)
-    FU.symlink(src, dst, :verbose => Gem.configuration.really_verbose) if File.exist?(src)
+    if File.exist?(dst = current_path_for(spec, path)) || File.symlink?(dst)
+      FileUtils.rm(dst)
+    end
+
+    if File.exist?(src = spec.full_gem_path)
+      FileUtils.symlink(src, dst, verbose: Gem.configuration.really_verbose)
+    end
   end
 
   def base_path_for(arg)
-    File.join(arg.is_a?(Gem::Specification) ? arg.base_dir : arg, 'current')
+    File.join(arg.is_a?(Gem::Specification) ? arg.base_dir : arg, CURR_DIR)
   end
 
   def current_path_for(spec, path = base_path_for(spec))

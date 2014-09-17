@@ -3,13 +3,8 @@ require 'current_gem'
 
 if CurrentGem.can_symlink?
 
-  Gem.post_install do |inst|
-    CurrentGem.update(inst)
-  end
-
-  Gem.post_uninstall do |uninst|
-    CurrentGem.update(uninst)
-  end
+  Gem.post_install   { |installer|   CurrentGem.update(installer)   }
+  Gem.post_uninstall { |uninstaller| CurrentGem.update(uninstaller) }
 
   [:symlink_current, :current_path, :current_version].each { |command|
     Gem::CommandManager.instance.register_command(command)

@@ -7,7 +7,7 @@
 #                         Albertus-Magnus-Platz,                              #
 #                         50923 Cologne, Germany                              #
 #                                                                             #
-# Copyright (C) 2013 Jens Wille                                               #
+# Copyright (C) 2013-2014 Jens Wille                                          #
 #                                                                             #
 # Authors:                                                                    #
 #     Jens Wille <jens.wille@gmail.com>                                       #
@@ -32,7 +32,7 @@ class Gem::Commands::CurrentPathCommand < Gem::Command
 
   def initialize
     super 'current_path', "Display the location of a gem's current symlink",
-      :resolve => false
+      resolve: false
 
     add_option('-r', '--resolve', 'Display value of symbolic link') { |value, options|
       options[:resolve] = true
@@ -49,7 +49,7 @@ class Gem::Commands::CurrentPathCommand < Gem::Command
 
   def execute
     path = CurrentGem.path_for(get_one_gem_name)
-    return unless path && File.exists?(path)
+    return unless path && File.exist?(path)
 
     path = File.readlink(path) if options[:resolve]
     say path

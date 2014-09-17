@@ -1,4 +1,4 @@
-= current_gem - Maintain symlinks to the most recent versions of installed RubyGems.
+= current_gem - Maintain symlinks to the most recent versions of installed Ruby Gems.
 
 == VERSION
 
@@ -8,7 +8,7 @@ This documentation refers to current_gem version 0.0.6
 == DESCRIPTION
 
 CurrentGem maintains symlinks to the most recent versions of your installed
-RubyGems by hooking into the install and update process. Thus, you have a
+Ruby Gems by hooking into the install and update process. Thus, you have a
 stable path at your disposal that always points to the current version of
 a gem.
 
@@ -44,57 +44,57 @@ or run
 
   > gem spec <gem_name>
 
-in a command shell (this is a built-in command).
+on the command line (this is a built-in command).
 
 You can get a gem's current path programmatically with
 
-  CurrentGem.path_for(gem_name)
+  require 'current_gem'
 
-  # or
+  CurrentGem.path_for(gem_name)
   CurrentGem.path_for(spec)
 
-or by executing
+or by running
 
   > gem current_path <gem_name>
 
-  # resolve link target
-  > gem current_path <gem_name> -r
-
-on the command line.
+on the command line (turn on the <tt>--resolve</tt>/<tt>-r</tt> switch to
+resolve the link target).
 
 Finally, get the gem's current version with
 
-  CurrentGem.version_for(gem_name)
+  require 'current_gem'
 
-  # or
+  CurrentGem.version_for(gem_name)
   CurrentGem.version_for(spec)
 
 or by running
 
   > gem current_version <gem_name>
 
+on the command line.
+
 === Updating
 
 In case you want to update all symlinks at once (or you want to get started
-after installing CurrentGem for the first time) call
+after installing CurrentGem for the first time), call
 
   require 'current_gem'
   CurrentGem.update_all
 
-or execute
+or run
 
   > gem symlink_current
 
-on the command line (turn on the --verbose/-V switch to see the actual links).
+on the command line (turn on the <tt>--verbose</tt>/<tt>-V</tt> switch to see
+the actual links).
 
 Whenever you install or update any gems the symlinks will be created/updated
-automatically. If you uninstall a gem the symlink will be pointed at the most
+automatically. If you uninstall a gem, the symlink will be pointed at the most
 recent remaining version or, if none are left, removed as well.
 
 
 == LINKS
 
-<b></b>
 Documentation:: http://blackwinter.github.com/current_gem
 Source code::   http://github.com/blackwinter/current_gem
 RubyGem::       http://rubygems.org/gems/current_gem
@@ -110,7 +110,7 @@ RubyGem::       http://rubygems.org/gems/current_gem
 Copyright (C) 2009-2012 University of Cologne,
 Albertus-Magnus-Platz, 50923 Cologne, Germany
 
-Copyright (C) 2013 Jens Wille
+Copyright (C) 2013-2014 Jens Wille
 
 current_gem is free software: you can redistribute it and/or modify it under
 the terms of the GNU Affero General Public License as published by the Free
