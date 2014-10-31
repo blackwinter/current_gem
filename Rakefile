@@ -1,4 +1,4 @@
-require File.expand_path(%q{../lib/current_gem/version}, __FILE__)
+require_relative 'lib/current_gem/version'
 
 begin
   require 'hen'
