@@ -102,13 +102,14 @@ module CurrentGem
   def find_by_name(name, req = nil)
     req ||= Gem::Requirement.default
 
-    Gem::Specification.find_all_by_name(name.to_s, req).reject { |spec|
-      spec.version.prerelease?
-    }.last
+    prereleases, releases = Gem::Specification.find_all_by_name(
+      name.to_s, req).partition { |spec| spec.version.prerelease? }
+
+    releases.last || prereleases.last
   end
 
   def symlink(spec, path = base_path_for(spec))
-    return unless can_symlink? && !spec.version.prerelease?
+    return unless can_symlink?
 
     FileUtils.mkdir_p(path) unless File.exist?(path)
 
