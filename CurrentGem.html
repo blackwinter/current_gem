@@ -4,7 +4,7 @@
 <head>
 <meta charset="UTF-8">
 
-<title>module CurrentGem - current_gem Application documentation (v0.1.0)</title>
+<title>module CurrentGem - current_gem Application documentation (v0.2.0)</title>
 
 <link href="./fonts.css" rel="stylesheet">
 <link href="./rdoc.css" rel="stylesheet">
@@ -428,7 +428,7 @@
 
           
           <div class="method-source-code" id="base_path_for-source">
-            <pre><span class="ruby-comment"># File lib/current_gem.rb, line 128</span>
+            <pre><span class="ruby-comment"># File lib/current_gem.rb, line 129</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">base_path_for</span>(<span class="ruby-identifier">arg</span>)
   <span class="ruby-constant">File</span>.<span class="ruby-identifier">join</span>(<span class="ruby-identifier">arg</span>.<span class="ruby-identifier">is_a?</span>(<span class="ruby-constant">Gem</span><span class="ruby-operator">::</span><span class="ruby-constant">Specification</span>) <span class="ruby-operator">?</span> <span class="ruby-identifier">arg</span>.<span class="ruby-identifier">base_dir</span> <span class="ruby-operator">:</span> <span class="ruby-identifier">arg</span>, <span class="ruby-constant">CURR_DIR</span>)
 <span class="ruby-keyword">end</span></pre>
@@ -461,7 +461,7 @@
 
           
           <div class="method-source-code" id="current_path_for-source">
-            <pre><span class="ruby-comment"># File lib/current_gem.rb, line 132</span>
+            <pre><span class="ruby-comment"># File lib/current_gem.rb, line 133</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">current_path_for</span>(<span class="ruby-identifier">spec</span>, <span class="ruby-identifier">path</span> = <span class="ruby-identifier">base_path_for</span>(<span class="ruby-identifier">spec</span>))
   <span class="ruby-constant">File</span>.<span class="ruby-identifier">join</span>(<span class="ruby-identifier">path</span>, <span class="ruby-identifier">spec</span>.<span class="ruby-identifier">name</span>)
 <span class="ruby-keyword">end</span></pre>
@@ -536,9 +536,10 @@
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">find_by_name</span>(<span class="ruby-identifier">name</span>, <span class="ruby-identifier">req</span> = <span class="ruby-keyword">nil</span>)
   <span class="ruby-identifier">req</span> <span class="ruby-operator">||=</span> <span class="ruby-constant">Gem</span><span class="ruby-operator">::</span><span class="ruby-constant">Requirement</span>.<span class="ruby-identifier">default</span>
 
-  <span class="ruby-constant">Gem</span><span class="ruby-operator">::</span><span class="ruby-constant">Specification</span>.<span class="ruby-identifier">find_all_by_name</span>(<span class="ruby-identifier">name</span>.<span class="ruby-identifier">to_s</span>, <span class="ruby-identifier">req</span>).<span class="ruby-identifier">reject</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">spec</span><span class="ruby-operator">|</span>
-    <span class="ruby-identifier">spec</span>.<span class="ruby-identifier">version</span>.<span class="ruby-identifier">prerelease?</span>
-  }.<span class="ruby-identifier">last</span>
+  <span class="ruby-identifier">prereleases</span>, <span class="ruby-identifier">releases</span> = <span class="ruby-constant">Gem</span><span class="ruby-operator">::</span><span class="ruby-constant">Specification</span>.<span class="ruby-identifier">find_all_by_name</span>(
+    <span class="ruby-identifier">name</span>.<span class="ruby-identifier">to_s</span>, <span class="ruby-identifier">req</span>).<span class="ruby-identifier">partition</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">spec</span><span class="ruby-operator">|</span> <span class="ruby-identifier">spec</span>.<span class="ruby-identifier">version</span>.<span class="ruby-identifier">prerelease?</span> }
+
+  <span class="ruby-identifier">releases</span>.<span class="ruby-identifier">last</span> <span class="ruby-operator">||</span> <span class="ruby-identifier">prereleases</span>.<span class="ruby-identifier">last</span>
 <span class="ruby-keyword">end</span></pre>
           </div>
           
@@ -602,9 +603,9 @@
 
           
           <div class="method-source-code" id="symlink-source">
-            <pre><span class="ruby-comment"># File lib/current_gem.rb, line 110</span>
+            <pre><span class="ruby-comment"># File lib/current_gem.rb, line 111</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">symlink</span>(<span class="ruby-identifier">spec</span>, <span class="ruby-identifier">path</span> = <span class="ruby-identifier">base_path_for</span>(<span class="ruby-identifier">spec</span>))
-  <span class="ruby-keyword">return</span> <span class="ruby-keyword">unless</span> <span class="ruby-identifier">can_symlink?</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-operator">!</span><span class="ruby-identifier">spec</span>.<span class="ruby-identifier">version</span>.<span class="ruby-identifier">prerelease?</span>
+  <span class="ruby-keyword">return</span> <span class="ruby-keyword">unless</span> <span class="ruby-identifier">can_symlink?</span>
 
   <span class="ruby-constant">FileUtils</span>.<span class="ruby-identifier">mkdir_p</span>(<span class="ruby-identifier">path</span>) <span class="ruby-keyword">unless</span> <span class="ruby-constant">File</span>.<span class="ruby-identifier">exist?</span>(<span class="ruby-identifier">path</span>)
 
